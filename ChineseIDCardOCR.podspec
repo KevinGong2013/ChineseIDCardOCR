@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
                 利用FFNN（前馈神经网络）OCR身份证信息
                    DESC
 
-  s.homepage     = "http://www.prophetapp.cn/ChineseIDCardOCR"
+  s.homepage     = "http://www.prophetapp.cn"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
   s.license      = "Apache License, Version 2.0"

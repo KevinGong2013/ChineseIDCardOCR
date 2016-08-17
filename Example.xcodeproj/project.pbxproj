@@ -14,12 +14,12 @@
 		0A9262B71D64164D00FDC253 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262B61D64164D00FDC253 /* ViewController.swift */; };
 		0A9262DF1D64192500FDC253 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262BF1D64166700FDC253 /* ChineseIDCardOCR.framework */; };
 		0A9262E01D64192500FDC253 /* ChineseIDCardOCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262BF1D64166700FDC253 /* ChineseIDCardOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0A9262FB1D641A6200FDC253 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262FA1D6419DB00FDC253 /* GPUImage.framework */; };
-		0A9262FC1D641A6200FDC253 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262FA1D6419DB00FDC253 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A9263041D641B1200FDC253 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263001D641B1200FDC253 /* test.png */; };
 		0A9263051D641B1200FDC253 /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263011D641B1200FDC253 /* test1.png */; };
 		0A9263061D641B1200FDC253 /* test3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263021D641B1200FDC253 /* test3.png */; };
 		0A9263071D641B1200FDC253 /* test4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263031D641B1200FDC253 /* test4.png */; };
+		0A9263251D642A3E00FDC253 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262FA1D6419DB00FDC253 /* GPUImage.framework */; };
+		0A9263261D642A3E00FDC253 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262FA1D6419DB00FDC253 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 			remoteGlobalIDString = BCE209E51943F20C002FEED8;
 			remoteInfo = GPUImageFramework;
 		};
-		0A9262FD1D641A6200FDC253 /* PBXContainerItemProxy */ = {
+		0A9263271D642A3E00FDC253 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A9262F11D6419DB00FDC253 /* GPUImage.xcodeproj */;
 			proxyType = 1;
@@ -75,7 +75,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0A9262E01D64192500FDC253 /* ChineseIDCardOCR.framework in Embed Frameworks */,
-				0A9262FC1D641A6200FDC253 /* GPUImage.framework in Embed Frameworks */,
+				0A9263261D642A3E00FDC253 /* GPUImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,7 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9262DF1D64192500FDC253 /* ChineseIDCardOCR.framework in Frameworks */,
-				0A9262FB1D641A6200FDC253 /* GPUImage.framework in Frameworks */,
+				0A9263251D642A3E00FDC253 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +188,7 @@
 			);
 			dependencies = (
 				0A9262E21D64192500FDC253 /* PBXTargetDependency */,
-				0A9262FE1D641A6200FDC253 /* PBXTargetDependency */,
+				0A9263281D642A3E00FDC253 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -304,10 +304,10 @@
 			name = ChineseIDCardOCR;
 			targetProxy = 0A9262E11D64192500FDC253 /* PBXContainerItemProxy */;
 		};
-		0A9262FE1D641A6200FDC253 /* PBXTargetDependency */ = {
+		0A9263281D642A3E00FDC253 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GPUImageFramework;
-			targetProxy = 0A9262FD1D641A6200FDC253 /* PBXContainerItemProxy */;
+			targetProxy = 0A9263271D642A3E00FDC253 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
