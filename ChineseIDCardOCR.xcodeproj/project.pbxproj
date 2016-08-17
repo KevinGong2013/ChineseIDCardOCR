@@ -14,12 +14,10 @@
 		0A92635C1D6446B700FDC253 /* ChineseIDCardOCR.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A92635B1D6446B700FDC253 /* ChineseIDCardOCR.bundle */; };
 		0A9263661D64496600FDC253 /* 130121197903270035.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263611D6447D300FDC253 /* 130121197903270035.png */; };
 		0A9263E91D64628000FDC253 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9263871D64612300FDC253 /* GPUImage.framework */; };
-		0A92640F1D6464CB00FDC253 /* ChineseIDCardOCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9263FF1D6464CB00FDC253 /* ChineseIDCardOCR.h */; };
 		0A9264101D6464CB00FDC253 /* FFNN+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9264001D6464CB00FDC253 /* FFNN+Storage.swift */; };
 		0A9264111D6464CB00FDC253 /* FFNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9264011D6464CB00FDC253 /* FFNN.swift */; };
 		0A9264121D6464CB00FDC253 /* FocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9264021D6464CB00FDC253 /* FocusView.swift */; };
 		0A9264131D6464CB00FDC253 /* IDCardOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9264031D6464CB00FDC253 /* IDCardOCR.swift */; };
-		0A9264141D6464CB00FDC253 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A9264041D6464CB00FDC253 /* Info.plist */; };
 		0A9264151D6464CB00FDC253 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9264051D6464CB00FDC253 /* Matrix.swift */; };
 		0A9264161D6464CB00FDC253 /* OCR-Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9264061D6464CB00FDC253 /* OCR-Training.swift */; };
 		0A9264171D6464CB00FDC253 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9264071D6464CB00FDC253 /* Operations.swift */; };
@@ -29,6 +27,7 @@
 		0A92641C1D6464CB00FDC253 /* UnionFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92640C1D6464CB00FDC253 /* UnionFind.swift */; };
 		0A92641D1D6464CB00FDC253 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92640D1D6464CB00FDC253 /* Utils.swift */; };
 		0A92641E1D6464CB00FDC253 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92640E1D6464CB00FDC253 /* Vector.swift */; };
+		0A9264291D6467CC00FDC253 /* ChineseIDCardOCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9263FF1D6464CB00FDC253 /* ChineseIDCardOCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,7 +195,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A92640F1D6464CB00FDC253 /* ChineseIDCardOCR.h in Headers */,
+				0A9264291D6467CC00FDC253 /* ChineseIDCardOCR.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +245,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Kevin.Gong;
 				TargetAttributes = {
 					0A9262321D640FF200FDC253 = {
@@ -303,7 +302,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9264141D6464CB00FDC253 /* Info.plist in Resources */,
 				0A9263171D641DB700FDC253 /* idbackground.png in Resources */,
 				0A92635C1D6446B700FDC253 /* ChineseIDCardOCR.bundle in Resources */,
 				0A9263181D641DB700FDC253 /* OCR-B 10 BT.ttf in Resources */,
@@ -398,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -441,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -483,6 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.prophetapp.ChineseIDCardOCR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -503,6 +502,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.prophetapp.ChineseIDCardOCRTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
