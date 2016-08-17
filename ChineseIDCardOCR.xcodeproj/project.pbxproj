@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A92623E1D640FF200FDC253 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262331D640FF200FDC253 /* ChineseIDCardOCR.framework */; };
+		0A9262561D64103800FDC253 /* ChineseIDCardOCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9262511D64103800FDC253 /* ChineseIDCardOCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A9262581D64103C00FDC253 /* ChineseIDCardOCRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92624E1D64103800FDC253 /* ChineseIDCardOCRTests.swift */; };
+		0A92626A1D64112100FDC253 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92625B1D64112100FDC253 /* Vector.swift */; };
+		0A92626B1D64112100FDC253 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92625C1D64112100FDC253 /* Utils.swift */; };
+		0A92626C1D64112100FDC253 /* UnionFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92625D1D64112100FDC253 /* UnionFind.swift */; };
+		0A92626D1D64112100FDC253 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92625E1D64112100FDC253 /* Storage.swift */; };
+		0A92626F1D64112100FDC253 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262601D64112100FDC253 /* ScannerViewController.swift */; };
+		0A9262711D64112100FDC253 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262621D64112100FDC253 /* Random.swift */; };
+		0A9262721D64112100FDC253 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262631D64112100FDC253 /* Operations.swift */; };
+		0A9262731D64112100FDC253 /* OCR-Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262641D64112100FDC253 /* OCR-Training.swift */; };
+		0A9262741D64112100FDC253 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262651D64112100FDC253 /* Matrix.swift */; };
+		0A9262751D64112100FDC253 /* IDCardOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262661D64112100FDC253 /* IDCardOCR.swift */; };
+		0A9262761D64112100FDC253 /* FocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262671D64112100FDC253 /* FocusView.swift */; };
+		0A9262771D64112100FDC253 /* FFNN+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262681D64112100FDC253 /* FFNN+Storage.swift */; };
+		0A9262781D64112100FDC253 /* FFNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262691D64112100FDC253 /* FFNN.swift */; };
+		0A9262831D64115800FDC253 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A92627C1D64115800FDC253 /* ScannerViewController.xib */; };
+		0A9262841D64115800FDC253 /* OCR-Network in Resources */ = {isa = PBXBuildFile; fileRef = 0A92627D1D64115800FDC253 /* OCR-Network */; };
+		0A9262851D64115800FDC253 /* OCR-B 10 BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A92627E1D64115800FDC253 /* OCR-B 10 BT.ttf */; };
+		0A9262861D64115800FDC253 /* idbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A92627F1D64115800FDC253 /* idbackground.png */; };
+		0A9262871D64115800FDC253 /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9262801D64115800FDC253 /* icon_close@3x.png */; };
+		0A9262881D64115800FDC253 /* icon_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9262811D64115800FDC253 /* icon_close@2x.png */; };
+		0A9262891D64115800FDC253 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9262821D64115800FDC253 /* icon_close.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A92623F1D640FF200FDC253 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A92622A1D640FF100FDC253 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A9262321D640FF200FDC253;
+			remoteInfo = ChineseIDCardOCR;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A9262331D640FF200FDC253 /* ChineseIDCardOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A92623D1D640FF200FDC253 /* ChineseIDCardOCRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChineseIDCardOCRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A92624E1D64103800FDC253 /* ChineseIDCardOCRTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseIDCardOCRTests.swift; sourceTree = "<group>"; };
+		0A92624F1D64103800FDC253 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A9262511D64103800FDC253 /* ChineseIDCardOCR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR.h; sourceTree = "<group>"; };
+		0A9262521D64103800FDC253 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A92625B1D64112100FDC253 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		0A92625C1D64112100FDC253 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0A92625D1D64112100FDC253 /* UnionFind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind.swift; sourceTree = "<group>"; };
+		0A92625E1D64112100FDC253 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		0A9262601D64112100FDC253 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		0A9262621D64112100FDC253 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		0A9262631D64112100FDC253 /* Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
+		0A9262641D64112100FDC253 /* OCR-Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OCR-Training.swift"; sourceTree = "<group>"; };
+		0A9262651D64112100FDC253 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		0A9262661D64112100FDC253 /* IDCardOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCardOCR.swift; sourceTree = "<group>"; };
+		0A9262671D64112100FDC253 /* FocusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusView.swift; sourceTree = "<group>"; };
+		0A9262681D64112100FDC253 /* FFNN+Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FFNN+Storage.swift"; sourceTree = "<group>"; };
+		0A9262691D64112100FDC253 /* FFNN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFNN.swift; sourceTree = "<group>"; };
+		0A92627C1D64115800FDC253 /* ScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
+		0A92627D1D64115800FDC253 /* OCR-Network */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "OCR-Network"; sourceTree = "<group>"; };
+		0A92627E1D64115800FDC253 /* OCR-B 10 BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OCR-B 10 BT.ttf"; sourceTree = "<group>"; };
+		0A92627F1D64115800FDC253 /* idbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idbackground.png; sourceTree = "<group>"; };
+		0A9262801D64115800FDC253 /* icon_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@3x.png"; sourceTree = "<group>"; };
+		0A9262811D64115800FDC253 /* icon_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@2x.png"; sourceTree = "<group>"; };
+		0A9262821D64115800FDC253 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A92622F1D640FF200FDC253 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A92623A1D640FF200FDC253 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A92623E1D640FF200FDC253 /* ChineseIDCardOCR.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A9262291D640FF100FDC253 = {
+			isa = PBXGroup;
+			children = (
+				0A9262501D64103800FDC253 /* Source */,
+				0A92624D1D64103800FDC253 /* Tests */,
+				0A9262531D64103800FDC253 /* Resource */,
+				0A9262341D640FF200FDC253 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0A9262341D640FF200FDC253 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A9262331D640FF200FDC253 /* ChineseIDCardOCR.framework */,
+				0A92623D1D640FF200FDC253 /* ChineseIDCardOCRTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0A92624D1D64103800FDC253 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0A92624E1D64103800FDC253 /* ChineseIDCardOCRTests.swift */,
+				0A92624F1D64103800FDC253 /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		0A9262501D64103800FDC253 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0A9262661D64112100FDC253 /* IDCardOCR.swift */,
+				0A92625C1D64112100FDC253 /* Utils.swift */,
+				0A92628A1D64116A00FDC253 /* Train */,
+				0A92627B1D64114700FDC253 /* UnionFind */,
+				0A92627A1D64113800FDC253 /* UI */,
+				0A9262791D64112800FDC253 /* FFNN */,
+				0A9262511D64103800FDC253 /* ChineseIDCardOCR.h */,
+				0A9262521D64103800FDC253 /* Info.plist */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		0A9262531D64103800FDC253 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0A92627C1D64115800FDC253 /* ScannerViewController.xib */,
+				0A92627D1D64115800FDC253 /* OCR-Network */,
+				0A92627E1D64115800FDC253 /* OCR-B 10 BT.ttf */,
+				0A92627F1D64115800FDC253 /* idbackground.png */,
+				0A9262801D64115800FDC253 /* icon_close@3x.png */,
+				0A9262811D64115800FDC253 /* icon_close@2x.png */,
+				0A9262821D64115800FDC253 /* icon_close.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		0A9262791D64112800FDC253 /* FFNN */ = {
+			isa = PBXGroup;
+			children = (
+				0A92625B1D64112100FDC253 /* Vector.swift */,
+				0A92625E1D64112100FDC253 /* Storage.swift */,
+				0A9262621D64112100FDC253 /* Random.swift */,
+				0A9262631D64112100FDC253 /* Operations.swift */,
+				0A9262651D64112100FDC253 /* Matrix.swift */,
+				0A9262681D64112100FDC253 /* FFNN+Storage.swift */,
+				0A9262691D64112100FDC253 /* FFNN.swift */,
+			);
+			name = FFNN;
+			sourceTree = "<group>";
+		};
+		0A92627A1D64113800FDC253 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0A9262601D64112100FDC253 /* ScannerViewController.swift */,
+				0A9262671D64112100FDC253 /* FocusView.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		0A92627B1D64114700FDC253 /* UnionFind */ = {
+			isa = PBXGroup;
+			children = (
+				0A92625D1D64112100FDC253 /* UnionFind.swift */,
+			);
+			name = UnionFind;
+			sourceTree = "<group>";
+		};
+		0A92628A1D64116A00FDC253 /* Train */ = {
+			isa = PBXGroup;
+			children = (
+				0A9262641D64112100FDC253 /* OCR-Training.swift */,
+			);
+			name = Train;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0A9262301D640FF200FDC253 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9262561D64103800FDC253 /* ChineseIDCardOCR.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0A9262321D640FF200FDC253 /* ChineseIDCardOCR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A9262471D640FF200FDC253 /* Build configuration list for PBXNativeTarget "ChineseIDCardOCR" */;
+			buildPhases = (
+				0A92622E1D640FF200FDC253 /* Sources */,
+				0A92622F1D640FF200FDC253 /* Frameworks */,
+				0A9262301D640FF200FDC253 /* Headers */,
+				0A9262311D640FF200FDC253 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChineseIDCardOCR;
+			productName = ChineseIDCardOCR;
+			productReference = 0A9262331D640FF200FDC253 /* ChineseIDCardOCR.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0A92623C1D640FF200FDC253 /* ChineseIDCardOCRTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A92624A1D640FF200FDC253 /* Build configuration list for PBXNativeTarget "ChineseIDCardOCRTests" */;
+			buildPhases = (
+				0A9262391D640FF200FDC253 /* Sources */,
+				0A92623A1D640FF200FDC253 /* Frameworks */,
+				0A92623B1D640FF200FDC253 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0A9262401D640FF200FDC253 /* PBXTargetDependency */,
+			);
+			name = ChineseIDCardOCRTests;
+			productName = ChineseIDCardOCRTests;
+			productReference = 0A92623D1D640FF200FDC253 /* ChineseIDCardOCRTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0A92622A1D640FF100FDC253 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Kevin.Gong;
+				TargetAttributes = {
+					0A9262321D640FF200FDC253 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					0A92623C1D640FF200FDC253 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 0A92622D1D640FF100FDC253 /* Build configuration list for PBXProject "ChineseIDCardOCR" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0A9262291D640FF100FDC253;
+			productRefGroup = 0A9262341D640FF200FDC253 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0A9262321D640FF200FDC253 /* ChineseIDCardOCR */,
+				0A92623C1D640FF200FDC253 /* ChineseIDCardOCRTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A9262311D640FF200FDC253 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9262871D64115800FDC253 /* icon_close@3x.png in Resources */,
+				0A9262881D64115800FDC253 /* icon_close@2x.png in Resources */,
+				0A9262851D64115800FDC253 /* OCR-B 10 BT.ttf in Resources */,
+				0A9262831D64115800FDC253 /* ScannerViewController.xib in Resources */,
+				0A9262861D64115800FDC253 /* idbackground.png in Resources */,
+				0A9262841D64115800FDC253 /* OCR-Network in Resources */,
+				0A9262891D64115800FDC253 /* icon_close.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A92623B1D640FF200FDC253 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A92622E1D640FF200FDC253 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A92626A1D64112100FDC253 /* Vector.swift in Sources */,
+				0A9262731D64112100FDC253 /* OCR-Training.swift in Sources */,
+				0A92626D1D64112100FDC253 /* Storage.swift in Sources */,
+				0A9262771D64112100FDC253 /* FFNN+Storage.swift in Sources */,
+				0A9262781D64112100FDC253 /* FFNN.swift in Sources */,
+				0A92626C1D64112100FDC253 /* UnionFind.swift in Sources */,
+				0A9262761D64112100FDC253 /* FocusView.swift in Sources */,
+				0A92626F1D64112100FDC253 /* ScannerViewController.swift in Sources */,
+				0A9262741D64112100FDC253 /* Matrix.swift in Sources */,
+				0A9262751D64112100FDC253 /* IDCardOCR.swift in Sources */,
+				0A92626B1D64112100FDC253 /* Utils.swift in Sources */,
+				0A9262711D64112100FDC253 /* Random.swift in Sources */,
+				0A9262721D64112100FDC253 /* Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A9262391D640FF200FDC253 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A9262581D64103C00FDC253 /* ChineseIDCardOCRTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0A9262401D640FF200FDC253 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A9262321D640FF200FDC253 /* ChineseIDCardOCR */;
+			targetProxy = 0A92623F1D640FF200FDC253 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A9262451D640FF200FDC253 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0A9262461D640FF200FDC253 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0A9262481D640FF200FDC253 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.prophetapp.ChineseIDCardOCR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0A9262491D640FF200FDC253 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.prophetapp.ChineseIDCardOCR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		0A92624B1D640FF200FDC253 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.prophetapp.ChineseIDCardOCRTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0A92624C1D640FF200FDC253 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.prophetapp.ChineseIDCardOCRTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A92622D1D640FF100FDC253 /* Build configuration list for PBXProject "ChineseIDCardOCR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A9262451D640FF200FDC253 /* Debug */,
+				0A9262461D640FF200FDC253 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A9262471D640FF200FDC253 /* Build configuration list for PBXNativeTarget "ChineseIDCardOCR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A9262481D640FF200FDC253 /* Debug */,
+				0A9262491D640FF200FDC253 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0A92624A1D640FF200FDC253 /* Build configuration list for PBXNativeTarget "ChineseIDCardOCRTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A92624B1D640FF200FDC253 /* Debug */,
+				0A92624C1D640FF200FDC253 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0A92622A1D640FF100FDC253 /* Project object */;
+}
