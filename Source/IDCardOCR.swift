@@ -13,7 +13,7 @@ internal var recognizableCharacters = "X0123456789"
 
 ///The FFNN network used for OCR
 internal var globalNetwork: FFNN = {
-    if let url = NSBundle(forClass: IDCardOCR.self).URLForResource("OCR-Network", withExtension: nil) {
+    if let url = NSBundle.ocrBundle().URLForResource("OCR-Network", withExtension: nil) {
         if let f = FFNN.fromFile(url) {
             return f
         }
@@ -39,7 +39,7 @@ public class IDCardOCR {
     ///Confidence must be bigger than the threshold
     var confidenceThreshold:Float = 0.1
 
-    public init(){}
+    public init() { }
 
     public func recognize(image: UIImage, completionHandler: CompletionHandler) {
         
@@ -119,7 +119,7 @@ public class IDCardOCR {
     }
 
     deinit {
-        debugPrint("IDCardOCR deinit")
+//        debugPrint("IDCardOCR deinit")
     }
 
     func preprocessImage(image: UIImage) -> UIImage {

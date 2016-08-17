@@ -129,3 +129,13 @@ extension String {
         return checkCode()
     }
 }
+
+extension NSBundle {
+
+    class func ocrBundle() -> NSBundle {
+        let assetPath = NSBundle(forClass: IDCardOCR.self).resourcePath!
+        return NSBundle(path: (assetPath as NSString).stringByAppendingPathComponent("ChineseIDCardOCR.bundle"))!
+    }
+
+}
+

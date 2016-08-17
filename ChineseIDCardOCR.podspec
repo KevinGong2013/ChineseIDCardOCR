@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
   s.license      = "Apache License, Version 2.0"
-  s.author             = "Kevin.Gong"
+  s.author       = "Kevin.Gong"
 
   s.platform     = :ios
   s.ios.deployment_target = "9.0"
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.source_files  = "Source"
   s.exclude_files = "Source/OCR-Training.swift"
 
-  s.resources = "Resources/icon_**.png", "Resources/OCR-Network", "Resources/*.xib"
+  s.resources = "ChineseIDCardOCR.bundle"
 
   s.dependency "GPUImage", "~> 0.1"
 

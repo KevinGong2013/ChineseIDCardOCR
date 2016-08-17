@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A92623E1D640FF200FDC253 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262331D640FF200FDC253 /* ChineseIDCardOCR.framework */; };
 		0A9262561D64103800FDC253 /* ChineseIDCardOCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9262511D64103800FDC253 /* ChineseIDCardOCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A9262581D64103C00FDC253 /* ChineseIDCardOCRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92624E1D64103800FDC253 /* ChineseIDCardOCRTests.swift */; };
+		0A9262581D64103C00FDC253 /* RecognizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92624E1D64103800FDC253 /* RecognizeTests.swift */; };
 		0A92626A1D64112100FDC253 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92625B1D64112100FDC253 /* Vector.swift */; };
 		0A92626B1D64112100FDC253 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92625C1D64112100FDC253 /* Utils.swift */; };
 		0A92626C1D64112100FDC253 /* UnionFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92625D1D64112100FDC253 /* UnionFind.swift */; };
@@ -24,13 +24,10 @@
 		0A9262771D64112100FDC253 /* FFNN+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262681D64112100FDC253 /* FFNN+Storage.swift */; };
 		0A9262781D64112100FDC253 /* FFNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262691D64112100FDC253 /* FFNN.swift */; };
 		0A9262971D64145900FDC253 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262951D64142F00FDC253 /* GPUImage.framework */; };
-		0A9263141D641DB700FDC253 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A92630D1D641DB700FDC253 /* icon_close.png */; };
-		0A9263151D641DB700FDC253 /* icon_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A92630E1D641DB700FDC253 /* icon_close@2x.png */; };
-		0A9263161D641DB700FDC253 /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A92630F1D641DB700FDC253 /* icon_close@3x.png */; };
 		0A9263171D641DB700FDC253 /* idbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263101D641DB700FDC253 /* idbackground.png */; };
 		0A9263181D641DB700FDC253 /* OCR-B 10 BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263111D641DB700FDC253 /* OCR-B 10 BT.ttf */; };
-		0A9263191D641DB700FDC253 /* OCR-Network in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263121D641DB700FDC253 /* OCR-Network */; };
-		0A92631A1D641DB700FDC253 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263131D641DB700FDC253 /* ScannerViewController.xib */; };
+		0A92635C1D6446B700FDC253 /* ChineseIDCardOCR.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A92635B1D6446B700FDC253 /* ChineseIDCardOCR.bundle */; };
+		0A9263661D64496600FDC253 /* 130121197903270035.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263611D6447D300FDC253 /* 130121197903270035.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +57,7 @@
 /* Begin PBXFileReference section */
 		0A9262331D640FF200FDC253 /* ChineseIDCardOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A92623D1D640FF200FDC253 /* ChineseIDCardOCRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChineseIDCardOCRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A92624E1D64103800FDC253 /* ChineseIDCardOCRTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseIDCardOCRTests.swift; sourceTree = "<group>"; };
+		0A92624E1D64103800FDC253 /* RecognizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizeTests.swift; sourceTree = "<group>"; };
 		0A92624F1D64103800FDC253 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A9262511D64103800FDC253 /* ChineseIDCardOCR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR.h; sourceTree = "<group>"; };
 		0A9262521D64103800FDC253 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,13 +75,10 @@
 		0A9262681D64112100FDC253 /* FFNN+Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FFNN+Storage.swift"; sourceTree = "<group>"; };
 		0A9262691D64112100FDC253 /* FFNN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFNN.swift; sourceTree = "<group>"; };
 		0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
-		0A92630D1D641DB700FDC253 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
-		0A92630E1D641DB700FDC253 /* icon_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@2x.png"; sourceTree = "<group>"; };
-		0A92630F1D641DB700FDC253 /* icon_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@3x.png"; sourceTree = "<group>"; };
 		0A9263101D641DB700FDC253 /* idbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idbackground.png; sourceTree = "<group>"; };
 		0A9263111D641DB700FDC253 /* OCR-B 10 BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OCR-B 10 BT.ttf"; sourceTree = "<group>"; };
-		0A9263121D641DB700FDC253 /* OCR-Network */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "OCR-Network"; sourceTree = "<group>"; };
-		0A9263131D641DB700FDC253 /* ScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
+		0A92635B1D6446B700FDC253 /* ChineseIDCardOCR.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ChineseIDCardOCR.bundle; path = ../ChineseIDCardOCR.bundle; sourceTree = "<group>"; };
+		0A9263611D6447D300FDC253 /* 130121197903270035.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 130121197903270035.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +124,8 @@
 		0A92624D1D64103800FDC253 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0A92624E1D64103800FDC253 /* ChineseIDCardOCRTests.swift */,
+				0A9263611D6447D300FDC253 /* 130121197903270035.png */,
+				0A92624E1D64103800FDC253 /* RecognizeTests.swift */,
 				0A92624F1D64103800FDC253 /* Info.plist */,
 			);
 			path = Tests;
@@ -202,13 +197,9 @@
 		0A92630C1D641DB700FDC253 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0A92630D1D641DB700FDC253 /* icon_close.png */,
-				0A92630E1D641DB700FDC253 /* icon_close@2x.png */,
-				0A92630F1D641DB700FDC253 /* icon_close@3x.png */,
+				0A92635B1D6446B700FDC253 /* ChineseIDCardOCR.bundle */,
 				0A9263101D641DB700FDC253 /* idbackground.png */,
 				0A9263111D641DB700FDC253 /* OCR-B 10 BT.ttf */,
-				0A9263121D641DB700FDC253 /* OCR-Network */,
-				0A9263131D641DB700FDC253 /* ScannerViewController.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -327,13 +318,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A92631A1D641DB700FDC253 /* ScannerViewController.xib in Resources */,
 				0A9263171D641DB700FDC253 /* idbackground.png in Resources */,
+				0A92635C1D6446B700FDC253 /* ChineseIDCardOCR.bundle in Resources */,
 				0A9263181D641DB700FDC253 /* OCR-B 10 BT.ttf in Resources */,
-				0A9263191D641DB700FDC253 /* OCR-Network in Resources */,
-				0A9263151D641DB700FDC253 /* icon_close@2x.png in Resources */,
-				0A9263161D641DB700FDC253 /* icon_close@3x.png in Resources */,
-				0A9263141D641DB700FDC253 /* icon_close.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A9263661D64496600FDC253 /* 130121197903270035.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9262581D64103C00FDC253 /* ChineseIDCardOCRTests.swift in Sources */,
+				0A9262581D64103C00FDC253 /* RecognizeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

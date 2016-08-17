@@ -47,7 +47,7 @@ public class ScannerViewController: UIViewController {
     public var didRecognizedHandler: (IDCard -> ())?
 
     public init() {
-        super.init(nibName: "ScannerViewController", bundle: NSBundle(forClass: ScannerViewController.self))
+        super.init(nibName: "ScannerViewController", bundle: NSBundle.ocrBundle())
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -87,7 +87,7 @@ public class ScannerViewController: UIViewController {
 
 
 
-        let image = UIImage(named: "icon_close", inBundle: NSBundle(forClass: ScannerViewController.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
+        let image = UIImage(named: "icon_close", inBundle: NSBundle.ocrBundle(), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
         closeButton.tintColor = UIColor.whiteColor()
         closeButton.setImage(image, forState: .Normal)
         closeButton.hidden = true
