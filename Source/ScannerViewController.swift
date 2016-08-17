@@ -233,7 +233,7 @@ public class ScannerViewController: UIViewController {
                     width: interestRect.size.width * image.size.width,
                     height: interestRect.size.height * image.size.height)
 
-                let croppedImage = image.crop(rect) // 身份证完成的图片
+                let croppedImage = image.crop(rect) // 身份证完整的图片
 
                 self.ocr.recognize(croppedImage) {
                     if $0.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 18 {
