@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ChineseIDCardOCR"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "中国二代身份证信息识别"
   s.description  = <<-DESC
                 利用FFNN（前馈神经网络）OCR身份证信息
@@ -26,8 +26,8 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/KevinGong2013/ChineseIDCardOCR.git", :tag => "#{s.version}" }
 
-  s.source_files  = "Source"
-  s.exclude_files = "Source/OCR-Training.swift"
+  s.source_files  = "Sources"
+  s.exclude_files = "Sources/OCR-Training.swift"
 
   s.resources = "ChineseIDCardOCR.bundle"
 
