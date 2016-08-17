@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ChineseIDCardOCR"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "中国二代身份证信息识别"
   s.description  = <<-DESC
                 利用FFNN（前馈神经网络）OCR身份证信息
