@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jaL-fZ-ljJ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OCR-B 10 BT.ttf">
+            <string>OCRB10PitchBT-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="eC7-rx-1la">
+            <objects>
+                <navigationController id="jaL-fZ-ljJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eWM-T7-x0d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rAs-6d-4wt" kind="relationship" relationship="rootViewController" id="2aT-7Q-KrV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z4B-73-7TZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-305" y="399"/>
+        </scene>
+        <!--Demo-->
+        <scene sceneID="pkJ-zY-ZUP">
+            <objects>
+                <viewController id="rAs-6d-4wt" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gog-Kc-rD2"/>
+                        <viewControllerLayoutGuide type="bottom" id="iSA-NG-piO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xly-lA-NF6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="60A-kG-fb0">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击下方的Scan开始扫描身份证" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9P-DR-gFl">
+                                <rect key="frame" x="178" y="94" width="243" height="24"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8SX-Pt-8bA">
+                                <rect key="frame" x="0.0" y="542" width="600" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2U3-Jt-qcm">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <state key="normal" title="Scan"/>
+                                        <connections>
+                                            <action selector="tap:" destination="rAs-6d-4wt" eventType="touchUpInside" id="eXM-AP-Ckv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emc-lS-PEa">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="50"/>
+                                        <state key="normal" title="识别本地图片"/>
+                                        <connections>
+                                            <action selector="recoginzeLocalImage:" destination="rAs-6d-4wt" eventType="touchUpInside" id="8Fy-jf-WTt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="oE0-HC-60s"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uH2-AK-Eij">
+                                <rect key="frame" x="300" y="534" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="OCRB10PitchBT-Regular" family="OCR-B 10 BT" pointSize="29"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uH2-AK-Eij" firstAttribute="centerX" secondItem="Xly-lA-NF6" secondAttribute="centerX" id="0AK-Xy-WIV"/>
+                            <constraint firstItem="8SX-Pt-8bA" firstAttribute="leading" secondItem="Xly-lA-NF6" secondAttribute="leading" id="Bak-i5-pQa"/>
+                            <constraint firstAttribute="trailing" secondItem="60A-kG-fb0" secondAttribute="trailing" id="III-IU-NkG"/>
+                            <constraint firstItem="60A-kG-fb0" firstAttribute="top" secondItem="gog-Kc-rD2" secondAttribute="bottom" id="JWi-jZ-GiB"/>
+                            <constraint firstItem="iSA-NG-piO" firstAttribute="top" secondItem="8SX-Pt-8bA" secondAttribute="bottom" constant="8" symbolic="YES" id="LxR-wy-7FD"/>
+                            <constraint firstItem="iSA-NG-piO" firstAttribute="top" secondItem="60A-kG-fb0" secondAttribute="bottom" id="OPo-8w-Dyf"/>
+                            <constraint firstAttribute="trailing" secondItem="8SX-Pt-8bA" secondAttribute="trailing" id="YPS-Jw-Yak"/>
+                            <constraint firstItem="P9P-DR-gFl" firstAttribute="top" secondItem="gog-Kc-rD2" secondAttribute="bottom" constant="30" id="aRt-Yp-eAR"/>
+                            <constraint firstItem="8SX-Pt-8bA" firstAttribute="top" secondItem="uH2-AK-Eij" secondAttribute="bottom" constant="8" id="cIc-bq-9RZ"/>
+                            <constraint firstItem="60A-kG-fb0" firstAttribute="leading" secondItem="Xly-lA-NF6" secondAttribute="leading" id="kVf-CE-ote"/>
+                            <constraint firstItem="P9P-DR-gFl" firstAttribute="centerX" secondItem="Xly-lA-NF6" secondAttribute="centerX" id="ocn-zl-f0v"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Demo" id="2CU-zG-CPX"/>
+                    <connections>
+                        <outlet property="imageView" destination="60A-kG-fb0" id="VQJ-eJ-rGD"/>
+                        <outlet property="numberLabel" destination="uH2-AK-Eij" id="7vm-Qi-rBe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G0i-24-Aso" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="399"/>
+        </scene>
+    </scenes>
+</document>

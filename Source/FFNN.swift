@@ -14,14 +14,14 @@ import Foundation
 
 
 /// An enum containing all errors that may be thrown by FFNN.
-public enum FFNNError: ErrorType {
+enum FFNNError: ErrorType {
     case InvalidInputsError(String)
     case InvalidAnswerError(String)
     case InvalidWeightsError(String)
 }
 
 /// An enum containing all supported activation functions.
-public enum ActivationFunction: String {
+enum ActivationFunction: String {
     /// No activation function (returns zero)
     case None
     /// Default activation function (sigmoid)
@@ -40,7 +40,7 @@ public enum ActivationFunction: String {
 }
 
 /// An enum containing all supported error functions.
-public enum ErrorFunction {
+enum ErrorFunction {
     /// Default error function (sum)
     case Default(average: Bool)
     /// Cross Entropy function (Cross Entropy)
@@ -49,7 +49,7 @@ public enum ErrorFunction {
 
 
 /// A 3-Layer Feed-Forward Artificial Neural Network
-public final class FFNN {
+final class FFNN {
     
     /// The number of input nodes to the network (read only).
     let numInputs: Int
@@ -139,7 +139,7 @@ public final class FFNN {
     
     
     /// Initializes a feed-forward neural network.
-    public init(inputs: Int, hidden: Int, outputs: Int, learningRate: Float = 0.7, momentum: Float = 0.4, weights: [Float]? = nil, activationFunction: ActivationFunction = .Default, errorFunction: ErrorFunction = .Default(average: false)) {
+    init(inputs: Int, hidden: Int, outputs: Int, learningRate: Float = 0.7, momentum: Float = 0.4, weights: [Float]? = nil, activationFunction: ActivationFunction = .Default, errorFunction: ErrorFunction = .Default(average: false)) {
         if inputs < 1 || hidden < 1 || outputs < 1 || learningRate <= 0 {
             print("Warning: Invalid arguments passed to FFNN initializer. Inputs, hidden, outputs and learningRate must all be positive and nonzero. Network will not perform correctly.")
         }
@@ -202,7 +202,7 @@ public final class FFNN {
     /// Propagates the given inputs through the neural network, returning the network's output.
     /// - Parameter inputs: An array of `Float`s, each element corresponding to one input node.
     /// - Returns: The network's output after applying the given inputs, as an array of `Float`s.
-    public func update(inputs inputs: [Float]) throws -> [Float] {
+    func update(inputs inputs: [Float]) throws -> [Float] {
         // Ensure that the correct number of inputs is given
         guard inputs.count == self.numInputs else {
             throw FFNNError.InvalidAnswerError("Invalid number of inputs given: \(inputs.count). Expected: \(self.numInputs)")
@@ -241,7 +241,7 @@ public final class FFNN {
     /// Trains the network by comparing its most recent output to the given 'answers', adjusting the network's weights as needed.
     /// - Parameter answer: The 'correct' desired output for the most recent update to the network, as an array of `Float`s.
     /// - Returns: The total calculated error from the most recent update.
-    public func backpropagate(answer answer: [Float]) throws -> Float {
+    func backpropagate(answer answer: [Float]) throws -> Float {
         // Verify valid answer
         guard answer.count == self.numOutputs else {
             throw FFNNError.InvalidAnswerError("Invalid number of outputs given in answer: \(answer.count). Expected: \(self.numOutputs)")
@@ -310,7 +310,7 @@ public final class FFNN {
     ///     - errorThreshold: A `Float` indicating the maximum error allowed per epoch of validation data, before the network is considered 'trained'.
     ///             This value must be determined by the user, because it varies based on the type of data used and the desired accuracy.
     /// - Returns: The final calculated weights of the network after training has completed.
-    public func train(inputs inputs: [[Float]], answers: [[Float]], testInputs: [[Float]], testAnswers: [[Float]], errorThreshold: Float) throws -> [Float] {
+    func train(inputs inputs: [[Float]], answers: [[Float]], testInputs: [[Float]], testAnswers: [[Float]], errorThreshold: Float) throws -> [Float] {
         guard errorThreshold > 0 else {
             throw FFNNError.InvalidInputsError("Error threshold must be greater than zero!")
         }
@@ -333,7 +333,7 @@ public final class FFNN {
     }
     
     /// Returns a serialized array of the network's current weights.
-    public func getWeights() -> [Float] {
+    func getWeights() -> [Float] {
         return self.hiddenWeights + self.outputWeights
     }
     
@@ -342,7 +342,7 @@ public final class FFNN {
     /// - Parameter weights: An array of `Float`s, to be used as the weights for the network.
     /// - Important: The number of weights must equal numHidden * (numInputs + 1) + numOutputs * (numHidden + 1),
     /// or the weights will be rejected.
-    public func resetWithWeights(weights: [Float]) throws {
+    func resetWithWeights(weights: [Float]) throws {
         guard weights.count == self.numHiddenWeights + self.numOutputWeights else {
             throw FFNNError.InvalidWeightsError("Invalid number of weights provided: \(weights.count). Expected: \(self.numHiddenWeights + self.numOutputWeights)")
         }
@@ -354,17 +354,17 @@ public final class FFNN {
 
 // MARK:- FFNN private methods
 
-public extension FFNN {
+extension FFNN {
     
     /// Returns an NSURL for a document with the given filename in the default documents directory.
-    public static func getFileURL(filename: String) -> NSURL {
+    static func getFileURL(filename: String) -> NSURL {
         let manager = NSFileManager.defaultManager()
         let dirURL = try! manager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
         return dirURL.URLByAppendingPathComponent(filename)
     }
     
     /// Reads a FFNN stored in a file at the given URL.
-    public static func read(url: NSURL) -> FFNN? {
+    static func read(url: NSURL) -> FFNN? {
         guard let data = NSData(contentsOfURL: url) else {
             return nil
         }
@@ -398,7 +398,7 @@ public extension FFNN {
     }
     
     /// Writes the current state of the FFNN to a file at the given URL.
-    public func write(url: NSURL) {
+    func write(url: NSURL) {
         var storage = [String : AnyObject]()
         storage["inputs"] = self.numInputs
         storage["hidden"] = self.numHidden
@@ -414,7 +414,7 @@ public extension FFNN {
     }
     
     /// Computes the error over the given training set.
-    public func error(result: [[Float]], expected: [[Float]]) throws -> Float {
+    func error(result: [[Float]], expected: [[Float]]) throws -> Float {
         var errorSum: Float = 0
         switch self.errorFunction {
         case .Default(let average):

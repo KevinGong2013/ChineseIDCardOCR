@@ -8,9 +8,9 @@
 
 import UIKit
 
-public class FocusView: UIView {
+class FocusView: UIView {
 
-    public func startScaningAnimation() {
+    func startScaningAnimation() {
 
         //
         stopScaningAnimation()
@@ -44,7 +44,7 @@ public class FocusView: UIView {
         laser.addAnimation(animation, forKey: "scaningAnimation")
     }
 
-    public func stopScaningAnimation() {
+    func stopScaningAnimation() {
         layer.sublayers?.filter { $0.name == "grid" }.forEach { $0.removeFromSuperlayer() }
     }
 

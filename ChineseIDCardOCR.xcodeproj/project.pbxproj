@@ -23,13 +23,14 @@
 		0A9262761D64112100FDC253 /* FocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262671D64112100FDC253 /* FocusView.swift */; };
 		0A9262771D64112100FDC253 /* FFNN+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262681D64112100FDC253 /* FFNN+Storage.swift */; };
 		0A9262781D64112100FDC253 /* FFNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262691D64112100FDC253 /* FFNN.swift */; };
-		0A9262831D64115800FDC253 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A92627C1D64115800FDC253 /* ScannerViewController.xib */; };
-		0A9262841D64115800FDC253 /* OCR-Network in Resources */ = {isa = PBXBuildFile; fileRef = 0A92627D1D64115800FDC253 /* OCR-Network */; };
-		0A9262851D64115800FDC253 /* OCR-B 10 BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A92627E1D64115800FDC253 /* OCR-B 10 BT.ttf */; };
-		0A9262861D64115800FDC253 /* idbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A92627F1D64115800FDC253 /* idbackground.png */; };
-		0A9262871D64115800FDC253 /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9262801D64115800FDC253 /* icon_close@3x.png */; };
-		0A9262881D64115800FDC253 /* icon_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9262811D64115800FDC253 /* icon_close@2x.png */; };
-		0A9262891D64115800FDC253 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9262821D64115800FDC253 /* icon_close.png */; };
+		0A9262971D64145900FDC253 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262951D64142F00FDC253 /* GPUImage.framework */; };
+		0A9263141D641DB700FDC253 /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A92630D1D641DB700FDC253 /* icon_close.png */; };
+		0A9263151D641DB700FDC253 /* icon_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A92630E1D641DB700FDC253 /* icon_close@2x.png */; };
+		0A9263161D641DB700FDC253 /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A92630F1D641DB700FDC253 /* icon_close@3x.png */; };
+		0A9263171D641DB700FDC253 /* idbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263101D641DB700FDC253 /* idbackground.png */; };
+		0A9263181D641DB700FDC253 /* OCR-B 10 BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263111D641DB700FDC253 /* OCR-B 10 BT.ttf */; };
+		0A9263191D641DB700FDC253 /* OCR-Network in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263121D641DB700FDC253 /* OCR-Network */; };
+		0A92631A1D641DB700FDC253 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263131D641DB700FDC253 /* ScannerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0A9262321D640FF200FDC253;
 			remoteInfo = ChineseIDCardOCR;
+		};
+		0A9262921D64142F00FDC253 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		0A9262941D64142F00FDC253 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,13 +77,14 @@
 		0A9262671D64112100FDC253 /* FocusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusView.swift; sourceTree = "<group>"; };
 		0A9262681D64112100FDC253 /* FFNN+Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FFNN+Storage.swift"; sourceTree = "<group>"; };
 		0A9262691D64112100FDC253 /* FFNN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFNN.swift; sourceTree = "<group>"; };
-		0A92627C1D64115800FDC253 /* ScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
-		0A92627D1D64115800FDC253 /* OCR-Network */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "OCR-Network"; sourceTree = "<group>"; };
-		0A92627E1D64115800FDC253 /* OCR-B 10 BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OCR-B 10 BT.ttf"; sourceTree = "<group>"; };
-		0A92627F1D64115800FDC253 /* idbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idbackground.png; sourceTree = "<group>"; };
-		0A9262801D64115800FDC253 /* icon_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@3x.png"; sourceTree = "<group>"; };
-		0A9262811D64115800FDC253 /* icon_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@2x.png"; sourceTree = "<group>"; };
-		0A9262821D64115800FDC253 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
+		0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		0A92630D1D641DB700FDC253 /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
+		0A92630E1D641DB700FDC253 /* icon_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@2x.png"; sourceTree = "<group>"; };
+		0A92630F1D641DB700FDC253 /* icon_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@3x.png"; sourceTree = "<group>"; };
+		0A9263101D641DB700FDC253 /* idbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idbackground.png; sourceTree = "<group>"; };
+		0A9263111D641DB700FDC253 /* OCR-B 10 BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OCR-B 10 BT.ttf"; sourceTree = "<group>"; };
+		0A9263121D641DB700FDC253 /* OCR-Network */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "OCR-Network"; sourceTree = "<group>"; };
+		0A9263131D641DB700FDC253 /* ScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A9262971D64145900FDC253 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +112,9 @@
 			children = (
 				0A9262501D64103800FDC253 /* Source */,
 				0A92624D1D64103800FDC253 /* Tests */,
-				0A9262531D64103800FDC253 /* Resource */,
+				0A92630C1D641DB700FDC253 /* Resources */,
 				0A9262341D640FF200FDC253 /* Products */,
+				0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,20 +149,6 @@
 				0A9262521D64103800FDC253 /* Info.plist */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		0A9262531D64103800FDC253 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				0A92627C1D64115800FDC253 /* ScannerViewController.xib */,
-				0A92627D1D64115800FDC253 /* OCR-Network */,
-				0A92627E1D64115800FDC253 /* OCR-B 10 BT.ttf */,
-				0A92627F1D64115800FDC253 /* idbackground.png */,
-				0A9262801D64115800FDC253 /* icon_close@3x.png */,
-				0A9262811D64115800FDC253 /* icon_close@2x.png */,
-				0A9262821D64115800FDC253 /* icon_close.png */,
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		0A9262791D64112800FDC253 /* FFNN */ = {
@@ -184,6 +188,29 @@
 				0A9262641D64112100FDC253 /* OCR-Training.swift */,
 			);
 			name = Train;
+			sourceTree = "<group>";
+		};
+		0A92628D1D64142F00FDC253 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A9262931D64142F00FDC253 /* libGPUImage.a */,
+				0A9262951D64142F00FDC253 /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0A92630C1D641DB700FDC253 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A92630D1D641DB700FDC253 /* icon_close.png */,
+				0A92630E1D641DB700FDC253 /* icon_close@2x.png */,
+				0A92630F1D641DB700FDC253 /* icon_close@3x.png */,
+				0A9263101D641DB700FDC253 /* idbackground.png */,
+				0A9263111D641DB700FDC253 /* OCR-B 10 BT.ttf */,
+				0A9263121D641DB700FDC253 /* OCR-Network */,
+				0A9263131D641DB700FDC253 /* ScannerViewController.xib */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +291,12 @@
 			mainGroup = 0A9262291D640FF100FDC253;
 			productRefGroup = 0A9262341D640FF200FDC253 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0A92628D1D64142F00FDC253 /* Products */;
+					ProjectRef = 0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0A9262321D640FF200FDC253 /* ChineseIDCardOCR */,
@@ -272,18 +305,35 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		0A9262931D64142F00FDC253 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 0A9262921D64142F00FDC253 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A9262951D64142F00FDC253 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 0A9262941D64142F00FDC253 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		0A9262311D640FF200FDC253 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9262871D64115800FDC253 /* icon_close@3x.png in Resources */,
-				0A9262881D64115800FDC253 /* icon_close@2x.png in Resources */,
-				0A9262851D64115800FDC253 /* OCR-B 10 BT.ttf in Resources */,
-				0A9262831D64115800FDC253 /* ScannerViewController.xib in Resources */,
-				0A9262861D64115800FDC253 /* idbackground.png in Resources */,
-				0A9262841D64115800FDC253 /* OCR-Network in Resources */,
-				0A9262891D64115800FDC253 /* icon_close.png in Resources */,
+				0A92631A1D641DB700FDC253 /* ScannerViewController.xib in Resources */,
+				0A9263171D641DB700FDC253 /* idbackground.png in Resources */,
+				0A9263181D641DB700FDC253 /* OCR-B 10 BT.ttf in Resources */,
+				0A9263191D641DB700FDC253 /* OCR-Network in Resources */,
+				0A9263151D641DB700FDC253 /* icon_close@2x.png in Resources */,
+				0A9263161D641DB700FDC253 /* icon_close@3x.png in Resources */,
+				0A9263141D641DB700FDC253 /* icon_close.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +551,7 @@
 				0A9262491D640FF200FDC253 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A92624A1D640FF200FDC253 /* Build configuration list for PBXNativeTarget "ChineseIDCardOCRTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +560,7 @@
 				0A92624C1D640FF200FDC253 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

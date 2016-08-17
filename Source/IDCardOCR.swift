@@ -21,9 +21,9 @@ internal var globalNetwork: FFNN = {
     return FFNN(inputs: 321, hidden: 100, outputs: recognizableCharacters.characters.count, learningRate: 0.7, momentum: 0.4, weights: nil, activationFunction: .Sigmoid, errorFunction: .CrossEntropy(average: false))
 }()
 
-class IDCardOCR {
+public class IDCardOCR {
 
-    typealias CompletionHandler = (String) -> ()
+    public typealias CompletionHandler = (String) -> ()
 
     private var network = globalNetwork
 
@@ -39,13 +39,9 @@ class IDCardOCR {
     ///Confidence must be bigger than the threshold
     var confidenceThreshold:Float = 0.1
 
-    init(){}
+    public init(){}
 
-    init(image: UIImage, _ handler: CompletionHandler) {
-        recognize(image, completionHandler: handler)
-    }
-
-    func recognize(image: UIImage, completionHandler: CompletionHandler) {
+    public func recognize(image: UIImage, completionHandler: CompletionHandler) {
         
         func indexToCharacter(index: Int) -> Character {
             return Array(recognizableCharacters.characters)[index]

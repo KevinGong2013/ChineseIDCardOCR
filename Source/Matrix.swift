@@ -7,27 +7,27 @@
 
 import Accelerate
 
-public class Matrix {
+class Matrix {
     
-    public let columns: Int
-    public let rows: Int
-    public let shape: (Int, Int)
-    public let size: Int
+    let columns: Int
+    let rows: Int
+    let shape: (Int, Int)
+    let size: Int
     var flat: Vector
     
-    public var vectorView: Vector {
+    var vectorView: Vector {
         get {
             return self.flat
         }
     }
     
-    public var description: String {
+    var description: String {
         get {
             return self.flat.flat.description
         }
     }
     
-    public var transpose: Matrix {
+    var transpose: Matrix {
         get {
             let m = Matrix(rows: self.columns, columns: self.rows)
             vDSP_mtransD(self.flat.flat, 1, &m.flat.flat, 1, vDSP_Length(self.rows), vDSP_Length(self.columns))
@@ -35,7 +35,7 @@ public class Matrix {
         }
     }
     
-    public init(rows: Int, columns: Int) {
+    init(rows: Int, columns: Int) {
         self.columns = columns
         self.rows = rows
         self.shape = (rows, columns)
@@ -44,7 +44,7 @@ public class Matrix {
     }
     
     /// Returns/sets the item at the given row and column index.
-    public subscript(row: Int, column: Int) -> Double {
+    subscript(row: Int, column: Int) -> Double {
         get {
             return self.flat.flat[row * self.columns + column]
         }
@@ -56,7 +56,7 @@ public class Matrix {
     // TODO: Guard against invalid indices for row/column accessors.
     
     /// Returns the receiver's row at the given index.
-    public func row(index: Int) -> Vector {
+    func row(index: Int) -> Vector {
         var v = self.flat.flat
         var r = [Double](count: self.columns, repeatedValue: 0)
         for column in 0..<self.columns {
@@ -69,7 +69,7 @@ public class Matrix {
     }
     
     /// Select column vector from matrix
-    public func column(index: Int) -> Vector{
+    func column(index: Int) -> Vector{
         var v = self.flat.flat
         var c = [Double](count: self.rows, repeatedValue: 0)
         for row in 0..<self.rows {
@@ -82,7 +82,7 @@ public class Matrix {
     }
     
     /// Returns a new `Matrix` that is a copy of the receiver.
-    public func copy() -> Matrix {
+    func copy() -> Matrix {
         let c = Matrix(rows: self.rows, columns: self.columns)
         c.flat = self.flat.copy()
         return c

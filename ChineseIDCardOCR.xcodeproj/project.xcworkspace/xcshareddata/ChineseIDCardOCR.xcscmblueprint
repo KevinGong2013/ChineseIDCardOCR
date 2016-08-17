@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "79F1874AF5E3B36CED77026A8D37B0F170142FDA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "79F1874AF5E3B36CED77026A8D37B0F170142FDA" : 0,
+    "E609DD15689CC93D8F4D219EB393F30F9F726178" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E6DA2729-C1DE-45F7-9A3D-0BA914FFC7E3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "79F1874AF5E3B36CED77026A8D37B0F170142FDA" : "ChineseIDCardOCR\/",
+    "E609DD15689CC93D8F4D219EB393F30F9F726178" : "ChineseIDCardOCR\/GPUImage\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ChineseIDCardOCR",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ChineseIDCardOCR.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/KevinGong2013\/ChineseIDCardOCR.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "79F1874AF5E3B36CED77026A8D37B0F170142FDA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/BradLarson\/GPUImage.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E609DD15689CC93D8F4D219EB393F30F9F726178"
+    }
+  ]
+}

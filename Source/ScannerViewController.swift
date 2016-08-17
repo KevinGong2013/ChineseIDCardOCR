@@ -10,10 +10,10 @@ import UIKit
 import AVFoundation
 import GPUImage
 
-struct IDCard {
+public struct IDCard {
 
-    let number: String // 身份证号
-    let image: UIImage // 身份证截图
+    public let number: String // 身份证号
+    public let image: UIImage // 身份证截图
 
 //TODO
 //添加其他字段的识别
@@ -21,7 +21,7 @@ struct IDCard {
 }
 
 
-class ScannerViewController: UIViewController {
+public class ScannerViewController: UIViewController {
 
     @IBOutlet weak var focusView: FocusView!
     @IBOutlet weak var maskView: UIView!
@@ -44,9 +44,17 @@ class ScannerViewController: UIViewController {
 
     var previewLayer: AVCaptureVideoPreviewLayer!
 
-    var didRecognizedHandler: (IDCard -> ())?
+    public var didRecognizedHandler: (IDCard -> ())?
 
-    override func viewDidLoad() {
+    public init() {
+        super.init(nibName: "ScannerViewController", bundle: NSBundle(forClass: ScannerViewController.self))
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         adjustfocusViewWidth()
@@ -77,7 +85,9 @@ class ScannerViewController: UIViewController {
         focusView.layer.cornerRadius = 4
         focusView.hidden = true
 
-        let image = UIImage(named: "icon_close")?.imageWithRenderingMode(.AlwaysTemplate)
+
+
+        let image = UIImage(named: "icon_close", inBundle: NSBundle(forClass: ScannerViewController.self), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
         closeButton.tintColor = UIColor.whiteColor()
         closeButton.setImage(image, forState: .Normal)
         closeButton.hidden = true
@@ -91,19 +101,19 @@ class ScannerViewController: UIViewController {
         removeNotification()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
         captureSession.startRunning()
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override public func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
 
         captureSession.stopRunning()
     }
 
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         previewLayer.frame = view.layer.bounds
         if let _ = maskView.layer.mask { refreshMask() }
@@ -239,19 +249,19 @@ class ScannerViewController: UIViewController {
     }
 
     // MARK: override supper
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
     
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
+    override public func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
         return .LandscapeRight
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    override public func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return .Landscape
     }
     
-    override func shouldAutorotate() -> Bool {
+    override public func shouldAutorotate() -> Bool {
         return false
     }
 }
