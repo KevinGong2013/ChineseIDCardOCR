@@ -23,11 +23,11 @@
 		0A9262761D64112100FDC253 /* FocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262671D64112100FDC253 /* FocusView.swift */; };
 		0A9262771D64112100FDC253 /* FFNN+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262681D64112100FDC253 /* FFNN+Storage.swift */; };
 		0A9262781D64112100FDC253 /* FFNN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9262691D64112100FDC253 /* FFNN.swift */; };
-		0A9262971D64145900FDC253 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262951D64142F00FDC253 /* GPUImage.framework */; };
 		0A9263171D641DB700FDC253 /* idbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263101D641DB700FDC253 /* idbackground.png */; };
 		0A9263181D641DB700FDC253 /* OCR-B 10 BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263111D641DB700FDC253 /* OCR-B 10 BT.ttf */; };
 		0A92635C1D6446B700FDC253 /* ChineseIDCardOCR.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A92635B1D6446B700FDC253 /* ChineseIDCardOCR.bundle */; };
 		0A9263661D64496600FDC253 /* 130121197903270035.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263611D6447D300FDC253 /* 130121197903270035.png */; };
+		0A9263E91D64628000FDC253 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9263871D64612300FDC253 /* GPUImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,16 +38,16 @@
 			remoteGlobalIDString = 0A9262321D640FF200FDC253;
 			remoteInfo = ChineseIDCardOCR;
 		};
-		0A9262921D64142F00FDC253 /* PBXContainerItemProxy */ = {
+		0A9263841D64612300FDC253 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */;
+			containerPortal = 0A92637B1D64612300FDC253 /* GPUImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
 			remoteInfo = GPUImage;
 		};
-		0A9262941D64142F00FDC253 /* PBXContainerItemProxy */ = {
+		0A9263861D64612300FDC253 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */;
+			containerPortal = 0A92637B1D64612300FDC253 /* GPUImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BCE209E51943F20C002FEED8;
 			remoteInfo = GPUImageFramework;
@@ -74,11 +74,11 @@
 		0A9262671D64112100FDC253 /* FocusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusView.swift; sourceTree = "<group>"; };
 		0A9262681D64112100FDC253 /* FFNN+Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FFNN+Storage.swift"; sourceTree = "<group>"; };
 		0A9262691D64112100FDC253 /* FFNN.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFNN.swift; sourceTree = "<group>"; };
-		0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		0A9263101D641DB700FDC253 /* idbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idbackground.png; sourceTree = "<group>"; };
 		0A9263111D641DB700FDC253 /* OCR-B 10 BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OCR-B 10 BT.ttf"; sourceTree = "<group>"; };
 		0A92635B1D6446B700FDC253 /* ChineseIDCardOCR.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ChineseIDCardOCR.bundle; path = ../ChineseIDCardOCR.bundle; sourceTree = "<group>"; };
 		0A9263611D6447D300FDC253 /* 130121197903270035.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 130121197903270035.png; sourceTree = "<group>"; };
+		0A92637B1D64612300FDC253 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9262971D64145900FDC253 /* GPUImage.framework in Frameworks */,
+				0A9263E91D64628000FDC253 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +108,7 @@
 				0A92624D1D64103800FDC253 /* Tests */,
 				0A92630C1D641DB700FDC253 /* Resources */,
 				0A9262341D640FF200FDC253 /* Products */,
-				0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */,
+				0A92637B1D64612300FDC253 /* GPUImage.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,15 +185,6 @@
 			name = Train;
 			sourceTree = "<group>";
 		};
-		0A92628D1D64142F00FDC253 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0A9262931D64142F00FDC253 /* libGPUImage.a */,
-				0A9262951D64142F00FDC253 /* GPUImage.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		0A92630C1D641DB700FDC253 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +193,15 @@
 				0A9263111D641DB700FDC253 /* OCR-B 10 BT.ttf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		0A92637C1D64612300FDC253 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A9263851D64612300FDC253 /* libGPUImage.a */,
+				0A9263871D64612300FDC253 /* GPUImage.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,8 +284,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 0A92628D1D64142F00FDC253 /* Products */;
-					ProjectRef = 0A92628C1D64142F00FDC253 /* GPUImage.xcodeproj */;
+					ProductGroup = 0A92637C1D64612300FDC253 /* Products */;
+					ProjectRef = 0A92637B1D64612300FDC253 /* GPUImage.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -297,18 +297,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		0A9262931D64142F00FDC253 /* libGPUImage.a */ = {
+		0A9263851D64612300FDC253 /* libGPUImage.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libGPUImage.a;
-			remoteRef = 0A9262921D64142F00FDC253 /* PBXContainerItemProxy */;
+			remoteRef = 0A9263841D64612300FDC253 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0A9262951D64142F00FDC253 /* GPUImage.framework */ = {
+		0A9263871D64612300FDC253 /* GPUImage.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = GPUImage.framework;
-			remoteRef = 0A9262941D64142F00FDC253 /* PBXContainerItemProxy */;
+			remoteRef = 0A9263861D64612300FDC253 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
