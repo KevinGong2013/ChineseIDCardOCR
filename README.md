@@ -26,6 +26,7 @@ ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身�
 - [x] 身份证号码识别
 - [ ] 身份证姓名、性别、地址识别
 - [ ] 图片预处理逻辑优化
+- [ ] 添加更多的识别模式 例如: 银行卡，护照，医保卡等等
 - [ ] Unit Test Converage
 
 ## Requirements
@@ -108,7 +109,7 @@ ocrInstance.recognize { recoginzedResult in
 ```
 
 ## 工作原理
-ChineseIDCardOCR 会对传入的UIImage进行人脸检测，根据监测到的frame和身份证比例，计算出身份证号码所在在的 Rect，然后截取图片。获取身份证号码图片以后, 利用[GPUImage](https://github.com/BradLarson/GPUImage)对图片进行一系列预处理，根据 [Connected-component labeling](https://en.wikipedia.org/wiki/Connected-component_labeling)理论，把身份证号码图片剪切成18个单独的小图片。然后利用[前馈神经网络(FFNN)](https://en.wikipedia.org/wiki/Feedforward_neural_network)对每个图片进行识别。
+ChineseIDCardOCR 会对传入的UIImage进行人脸检测，根据监测到的frame和身份证比例，计算出身份证号码所在的 Rect，然后截取图片。获取身份证号码图片以后, 利用[GPUImage](https://github.com/BradLarson/GPUImage)对图片进行一系列预处理，根据 [Connected-component labeling](https://en.wikipedia.org/wiki/Connected-component_labeling)理论，把身份证号码图片剪切成18个单独的小图片。然后利用[前馈神经网络(FFNN)](https://en.wikipedia.org/wiki/Feedforward_neural_network)对每个图片进行识别。
 ### FFNN 训练
 在framework提供了*OCR-Training.swift*可以根据自己的特点提供单独的训练数据
 
