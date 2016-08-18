@@ -5,6 +5,21 @@
 ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身份证信息。修改自 [Swift-ORC](https://github.com/garnele007/SwiftOCR)。
 
 
+#如何运行Demo
+
+项目将GPUImage作为submodule添加到项目中, 所以不能直接下载zip包需要按照下面的步骤clone代码
+
+```bash
+1. git clone https://github.com/KevinGong2013/ChineseIDCardOCR.git
+2. cd ChineseIDCardOCR
+3. git submodule update --init
+4. cd Example
+5. open Example.xcodeproj
+```
+
+注意`schema`选择 `Example`.
+另外模拟器只能测试读取识别本地图片，扫描识别需要用真机测试。
+
 ##功能
 - [x] 简洁易用的扫描界面
 - [x] 简洁的Train接口
