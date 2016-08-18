@@ -1,6 +1,16 @@
 #ChineseIDCardOCR
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ChineseIDCardOCR.svg)](https://img.shields.io/cocoapods/v/ChineseIDCardOCR.svg) [![Platform](https://img.shields.io/cocoapods/p/ChineseIDCardOCR.svg?style=flat)](http://cocoadocs.org/docsets/ChineseIDCardOCR)
+
+<p align="center" >
+<img src="https://raw.githubusercontent.com/KevinGong2013/ChineseIDCardOCR/master/example1.png" width="320" height="260"/>
+<img src="https://raw.githubusercontent.com/KevinGong2013/ChineseIDCardOCR/master/example2.png" width="320" height="260"/>
+</p>
+
+---
+
 ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身份证信息。修改自 [Swift-ORC](https://github.com/garnele007/SwiftOCR)。
+
 
 ##功能
 - [x] 简洁易用的扫描界面
@@ -46,7 +56,20 @@ $ pod install
 ```
 
 ### Carthage
-- [ ] TODO
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate AlamofireImage into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "KevinGong2013/ChineseIDCardOCR"
+```
 
 ## 使用示例
 
