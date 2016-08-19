@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2CD0CB1D66BD3800FF9B71 /* Test.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2CD0C91D66BD3300FF9B71 /* Test.png */; };
 		0A92623E1D640FF200FDC253 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9262331D640FF200FDC253 /* ChineseIDCardOCR.framework */; };
 		0A9262581D64103C00FDC253 /* RecognizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92624E1D64103800FDC253 /* RecognizeTests.swift */; };
 		0A9263171D641DB700FDC253 /* idbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263101D641DB700FDC253 /* idbackground.png */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A2CD0C91D66BD3300FF9B71 /* Test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Test.png; path = ../../../../Desktop/Test.png; sourceTree = "<group>"; };
 		0A9262331D640FF200FDC253 /* ChineseIDCardOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A92623D1D640FF200FDC253 /* ChineseIDCardOCRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChineseIDCardOCRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A92624E1D64103800FDC253 /* RecognizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizeTests.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		0A92624D1D64103800FDC253 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0A2CD0C91D66BD3300FF9B71 /* Test.png */,
 				0A9263611D6447D300FDC253 /* 130121197903270035.png */,
 				0A92624E1D64103800FDC253 /* RecognizeTests.swift */,
 				0A92624F1D64103800FDC253 /* Info.plist */,
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9263661D64496600FDC253 /* 130121197903270035.png in Resources */,
+				0A2CD0CB1D66BD3800FF9B71 /* Test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

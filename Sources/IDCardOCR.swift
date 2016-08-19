@@ -227,10 +227,13 @@ public class IDCardOCR {
 
      */
     internal func extractBlobs(image: UIImage) -> [(UIImage, CGRect)] {
+
         //data <- bitmapData
         let cgImage = image.CGImage
+
         let pixelData = CGDataProviderCopyData(CGImageGetDataProvider(cgImage))
         let bitmapData = CFDataGetBytePtr(pixelData)
+
         let numberOfComponents = CGImageGetBitsPerPixel(cgImage) / CGImageGetBitsPerComponent(cgImage)
         let bytesPerRow = CGImageGetBytesPerRow(cgImage)
         let imageHeight = CGImageGetHeight(cgImage)
@@ -309,7 +312,6 @@ public class IDCardOCR {
                         }
                     }
                 }
-
             }
         }
 
@@ -472,7 +474,7 @@ public class IDCardOCR {
             }
         }
 
-        outputImages.sortInPlace { return $0.0.1.origin.x < $0.1.1.origin.x }
+        outputImages.sortInPlace { return $0.0.1.origin.x < $0.1.1.origin.x } // 从左到右排列
 
         return outputImages
     }
