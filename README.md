@@ -29,6 +29,10 @@ ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身�
 - [ ] 添加更多的识别模式 例如: 银行卡，护照，医保卡等等
 - [ ] Unit Test Converage
 
+##TODO
+- [ ] 替换扫描界面识别身份证的方法，利用GPUImage的边缘检测算法自动识别身份证位置
+
+
 ## Requirements
 
 - iOS 9.0+
