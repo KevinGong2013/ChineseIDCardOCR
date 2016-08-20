@@ -27,25 +27,28 @@ public class IDCardOCR {
 
     private var network = globalNetwork
 
-    private lazy var context: CIContext = {
-        return CIContext(options: nil)
-    }()
+    // 为了加快识别速度 这里需要构建很多个 network
+    private var numberNetwork: FFNN? // includ "x"
+    private var chineseNetwork: FFNN?
 
     ///Radius in x axis for merging blobs
-    var xMergeRadius = CGFloat(1)
+    private var xMergeRadius = CGFloat(1)
     ///Radius in y axis for merging blobs
-    var yMergeRadius = CGFloat(3)
-
+    private var yMergeRadius = CGFloat(3)
     ///Confidence must be bigger than the threshold
-    var confidenceThreshold:Float = 0.1
+    private var confidenceThreshold:Float = 0.1
 
-    public init() { }
+    public init?(numberNetworkFileURL: NSURL = NSBundle.ocrBundle().URLForResource("OCR-Network", withExtension: nil)!, chineseNetworkFile: NSURL = NSBundle.ocrBundle().URLForResource("OCR-Network", withExtension: nil)!) {
+
+        numberNetwork = FFNN.fromFile(numberNetworkFileURL)
+        chineseNetwork = FFNN.fromFile(chineseNetworkFile)
+
+        guard let _ = numberNetwork , let _ = chineseNetwork else { return nil}
+    }
 
     public func recognize(image: UIImage, completionHandler: CompletionHandler) {
-        
-        func indexToCharacter(index: Int) -> Character {
-            return Array(recognizableCharacters.characters)[index]
-        }
+
+        func indexToCharacter(index: Int) -> Character { return Array(recognizableCharacters.characters)[index] }
 
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
 
@@ -73,53 +76,92 @@ public class IDCardOCR {
                 return
             }
 
-            let size = image.size
-            let bounds = faceFeature.bounds
+            var number = ""
+            var name = ""
 
-            // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
-            let w = bounds.width * 3.1
-            let x = bounds.width * 1.5
-            let y = bounds.origin.y + bounds.height
-            let h = size.height - y
+            let group = dispatch_group_create()
 
-            let result = image.crop(CGRect(x: x, y: y, width: w, height: h)) // 只有身份证号码
+            // 身份证号码
+            autoreleasepool {
 
-            let processedImage = self.preprocessImage(result) // 去除背景和一些干扰元素
-
-            let blobs = self.extractBlobs(processedImage)
-            var recognizedString = ""
-
-            for blob in blobs {
-
-                do {
-
-                    let blobData = self.convertImageToFloatArray(blob.0)
-                    let networkResults = try self.network.update(inputs: blobData)
-
-                    guard networkResults.maxElement() > self.confidenceThreshold else { break }
-
-                    for (idx, _) in networkResults.enumerate().sort({ $0.0.element > $0.1.element}) {
-
-                        let character = indexToCharacter(idx)
-
-                        if character == Character("X") && recognizedString.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) != 17 {
-                            continue
-                        }
-                        recognizedString.append(character)
-                        break
+                var numberRecognizedString = "" {
+                    didSet {
+                        number = numberRecognizedString
                     }
-                    
-                } catch {
-                    debugPrint("[Error] ffnn network update error")
+                }
+
+                dispatch_group_async(group, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+
+                    let numberImage = self.cropNumberImage(image, faceBounds: faceFeature.bounds)
+                    let blobs = self.extractBlobs(self.preprocessImage(numberImage))
+
+                    blobs.forEach {
+
+                        let bolbData = self.convertImageToFloatArray($0.0)
+
+                        do {
+                            let networkResults = try self.numberNetwork!.update(inputs: bolbData)
+
+                            if networkResults.maxElement() > self.confidenceThreshold {
+
+                                for (idx, _) in networkResults.enumerate().sort({ $0.0.element > $0.1.element}) {
+
+                                    let character = indexToCharacter(idx)
+
+                                    if character == Character("X") && numberRecognizedString.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) != 17 {
+                                        continue
+                                    }
+                                    numberRecognizedString.append(character)
+                                    break
+                                }
+
+                            }
+                        } catch {
+                            debugPrint(error)
+                        }
+                    }
                 }
             }
-            
-            completionHandler(recognizedString)
+
+            // 中文信息
+            autoreleasepool {
+
+                dispatch_group_async(group, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+
+                }
+            }
+
+            dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
+
+            completionHandler("\(name), \(number)")
         }
     }
 
+    func cropNumberImage(image: UIImage, faceBounds: CGRect) -> UIImage {
+
+        // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
+        let w = faceBounds.width * 3.1 //image.size.width //
+        let x = faceBounds.width * 1.5 //CGFloat = 0 //
+        let y = faceBounds.origin.y + faceBounds.height //image.size.height * 0.75// faceBounds.origin.y + faceBounds.height
+        let h = image.size.height * 0.25
+
+        // 这种处理会把 “公民身份号码” 这几个字截进来，但是问题不大 后期图像处理会处理掉
+        return image.crop(CGRect(x: x, y: y, width: w, height: h)) // 只有身份证号码
+    }
+    func cropNameImage(image: UIImage) -> UIImage {
+
+        let w = image.size.width / 2
+        let h = image.size.height * 0.14
+
+        let x = image.size.width * 0.16
+        let y = image.size.height * 0.08
+
+        return image.crop(CGRect(x: x, y: y, width: w, height: h)) // 只有名字
+    }
+
     deinit {
-//        debugPrint("IDCardOCR deinit")
+
+        debugPrint("IDCardOCR deinit")
     }
 
     func preprocessImage(image: UIImage) -> UIImage {
@@ -214,7 +256,7 @@ public class IDCardOCR {
             picture.processImage()
             processedImage = thresholdFilter.imageFromCurrentFramebufferWithOrientation(.Up)
         }
-        
+
         return processedImage!
     }
 
@@ -513,21 +555,21 @@ public class IDCardOCR {
             let resizedCGImage = CGImageCreateWithImageInRect(CGBitmapContextCreateImage(context), CGRectMake(0, 0, cropSize.width, cropSize.height))!
 
             let resizedOCRImage = UIImage(CGImage: resizedCGImage)
-
+            
             resizedBlobs.append(resizedOCRImage)
         }
-
+        
         return resizedBlobs
     }
-
+    
     /**
-
+     
      Takes an image and converts it to an array of floats. The array gets generated by taking the pixel-data of the red channel and then converting it into floats. This array can be used as input for the neural network.
-
+     
      - Parameter image:  The image which should get converted to the float array.
      - Parameter resize: If you set this to true, the image firsts gets resized. The default value is `true`.
      - Returns:          The array containing the pixel-data of the red channel.
-
+     
      */
     internal func convertImageToFloatArray(image: UIImage, resize: Bool = true) -> [Float] {
         

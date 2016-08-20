@@ -10,7 +10,7 @@ import UIKit
 
 class OCRTraining {
 
-    let ocr = IDCardOCR()
+    let ocr = IDCardOCR()!
 
     let trainingBackgroundImage = UIImage(named: "idbackground")!
 

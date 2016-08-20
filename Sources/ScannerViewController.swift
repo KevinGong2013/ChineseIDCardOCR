@@ -164,7 +164,7 @@ public class ScannerViewController: UIViewController {
             sSelf.refreshMask()
 
             // 开始准备获取图片
-            sSelf.repeatTimer = NSTimer.schedule(repeatInterval: 1) { [weak sSelf] in
+            sSelf.repeatTimer = NSTimer.schedule(repeatInterval: 0.5) { [weak sSelf] in
                 sSelf?.captureImage($0)
             }
 
@@ -222,7 +222,7 @@ public class ScannerViewController: UIViewController {
                 self.recognizing = false
                 return
             }
-
+            
             let imgData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
             if let image = UIImage(data: imgData) {
 
@@ -235,7 +235,7 @@ public class ScannerViewController: UIViewController {
 
                 let croppedImage = image.crop(rect) // 身份证完整的图片
 
-                self.ocr.recognize(croppedImage) {
+                self.ocr?.recognize(croppedImage) {
                     if $0.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 18 {
                         let number = $0
                         dispatch_async(dispatch_get_main_queue()) {

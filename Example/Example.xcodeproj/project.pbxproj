@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2CD1451D685FB400FF9B71 /* OCR-B 10 BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A2CD1441D685FB400FF9B71 /* OCR-B 10 BT.ttf */; };
 		0A92639F1D6461A200FDC253 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92639E1D6461A200FDC253 /* AppDelegate.swift */; };
 		0A9263A11D6461A200FDC253 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9263A01D6461A200FDC253 /* ViewController.swift */; };
 		0A9263A41D6461A200FDC253 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9263A21D6461A200FDC253 /* Main.storyboard */; };
@@ -83,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A2CD1441D685FB400FF9B71 /* OCR-B 10 BT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OCR-B 10 BT.ttf"; sourceTree = "<group>"; };
 		0A92639B1D6461A200FDC253 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A92639E1D6461A200FDC253 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A9263A01D6461A200FDC253 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				0A9263A21D6461A200FDC253 /* Main.storyboard */,
 				0A9263A51D6461A200FDC253 /* Assets.xcassets */,
 				0A9263A71D6461A200FDC253 /* LaunchScreen.storyboard */,
+				0A2CD1441D685FB400FF9B71 /* OCR-B 10 BT.ttf */,
 				0A9263AA1D6461A200FDC253 /* Info.plist */,
 			);
 			path = Example;
@@ -279,6 +282,7 @@
 				0A9263A41D6461A200FDC253 /* Main.storyboard in Resources */,
 				0A9263F51D64632400FDC253 /* test4.png in Resources */,
 				0A9263F31D64632400FDC253 /* test1.png in Resources */,
+				0A2CD1451D685FB400FF9B71 /* OCR-B 10 BT.ttf in Resources */,
 				0A9263F21D64632400FDC253 /* test.png in Resources */,
 				0A9263F41D64632400FDC253 /* test3.png in Resources */,
 			);

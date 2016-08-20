@@ -29,7 +29,7 @@
         <!--Demo-->
         <scene sceneID="4r5-hn-nvh">
             <objects>
-                <viewController id="kOg-62-m5E" customClass="ViewController" customModule="ChineseIDCardOCR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kOg-62-m5E" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jQ6-It-mvM"/>
                         <viewControllerLayoutGuide type="bottom" id="TXV-ZI-RlT"/>

@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var numberLabel: UILabel!
 
-
     @IBAction func tap(sender: UIButton) {
 
         let vc = ScannerViewController()
@@ -49,13 +48,13 @@ class ViewController: UIViewController {
 
     @IBAction func recoginzeLocalImage(sender: UIButton) {
 
+        let ocr = IDCardOCR()!
+
         let names = ["test", "test1", "test4", "test3"]
         let randomIdx = Int(arc4random_uniform(4))
         let image = UIImage(named: names[randomIdx])!
-        self.imageView.image = image
+        self.imageView.image = image //cropNameImage(image)
         self.numberLabel.text = "正在识别 ... ..."
-
-        let ocr = IDCardOCR()
 
         ocr.recognize(image) {
             let number = $0

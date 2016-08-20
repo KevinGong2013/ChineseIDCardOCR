@@ -27,10 +27,10 @@
                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bah-NJ-Ead" customClass="FocusView" customModule="ChineseIDCardOCR" customModuleProvider="target">
-                    <rect key="frame" x="90" y="164" width="420" height="272.5"/>
+                    <rect key="frame" x="90" y="168" width="420" height="264.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Bah-NJ-Ead" secondAttribute="height" multiplier="1.54:1" id="Eqp-Qb-vtz"/>
+                        <constraint firstAttribute="width" secondItem="Bah-NJ-Ead" secondAttribute="height" multiplier="1.59:1" id="Eqp-Qb-vtz"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfZ-f7-Mcm">
