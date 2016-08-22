@@ -4,7 +4,6 @@
 
 ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身份证信息。修改自 [Swift-ORC](https://github.com/garnele007/SwiftOCR)。
 
-
 #如何运行Demo
 
 项目将GPUImage作为submodule添加到项目中, 所以不能直接下载zip包需要按照下面的步骤clone代码
@@ -29,10 +28,6 @@ ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身�
 - [ ] 添加更多的识别模式 例如: 银行卡，护照，医保卡等等
 - [ ] Unit Test Converage
 
-##TODO
-- [ ] ~~替换扫描界面识别身份证的方法，利用GPUImage的边缘检测算法自动识别身份证位置(GPUImage识别到的边界读取不到囧)~~
-
-
 ## Requirements
 
 - iOS 9.0+
@@ -48,9 +43,9 @@ ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身�
 $ gem install cocoapods
 ```
 
-> CocoaPods 0.39.0+ is required to build Alamofire 3.0.0+.
+> CocoaPods 0.39.0+ is required to build ChineseIDCardOCR 3.0.0+.
 
-To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate ChineseIDCardOCR into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
