@@ -16,7 +16,7 @@ ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身�
 5. open Example.xcodeproj
 ```
 
-注意`schema`选择 `Example`.
+注意`scheme`选择 `Example`.
 另外模拟器只能测试读取识别本地图片，扫描识别需要用真机测试。
 
 ##功能
