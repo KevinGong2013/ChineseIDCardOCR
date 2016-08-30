@@ -117,7 +117,7 @@ ChineseIDCardOCR 会对传入的UIImage进行人脸检测，根据监测到的fr
 * [Swift-AI](https://github.com/collinhundley/Swift-AI)
 * [GPUImage](https://github.com/BradLarson/GPUImage)
 * [Union-Find](https://github.com/hollance/swift-algorithm-club/tree/master/Union-Find)
-* [Swift-ORC](https://github.com/garnele007/SwiftOCR)
+* [Swift-OCR](https://github.com/garnele007/SwiftOCR)
 
 ## License
 
