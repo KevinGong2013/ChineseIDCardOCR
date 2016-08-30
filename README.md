@@ -2,7 +2,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ChineseIDCardOCR.svg)](https://img.shields.io/cocoapods/v/ChineseIDCardOCR.svg) [![Platform](https://img.shields.io/cocoapods/p/ChineseIDCardOCR.svg?style=flat)](http://cocoadocs.org/docsets/ChineseIDCardOCR)
 
-ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身份证信息。修改自 [Swift-ORC](https://github.com/garnele007/SwiftOCR)。
+ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身份证信息。修改自 [Swift-OCR](https://github.com/garnele007/SwiftOCR)。
 
 #如何运行Demo
 
@@ -16,7 +16,7 @@ ChineseIDCardOCR是一个用swift写的framework，用来识别中国二代身�
 5. open Example.xcodeproj
 ```
 
-注意`schema`选择 `Example`.
+注意`scheme`选择 `Example`.
 另外模拟器只能测试读取识别本地图片，扫描识别需要用真机测试。
 
 ##功能
