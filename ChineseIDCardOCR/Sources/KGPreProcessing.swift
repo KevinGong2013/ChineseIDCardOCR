@@ -49,9 +49,9 @@ public struct KGPreProcessing {
     ///
     /// - parameter image: 身份证原始图片
     ///
-    /// - returns: 返回分割后的身份证号小图片
+    /// - returns: 返回处理后后的身份证号图片
 
-    public static func `do`(_ image: CIImage, faceBounds: CGRect, border: VNRectangleObservation? = nil, debugBlock: ((CIImage) -> ())? = nil, forTraining: Bool = false) -> [CIImage] {
+    public static func `do`(_ image: CIImage, faceBounds: CGRect, border: VNRectangleObservation? = nil, debugBlock: ((CIImage) -> ())? = nil, forTraining: Bool = false) -> CIImage {
         let imageSize = image.extent.size
         var inputImage = image
 
@@ -77,7 +77,7 @@ public struct KGPreProcessing {
         
         if !forTraining { // training的图不需要进行切割
             
-            // 4. 截图 将身份证数字区域截出来
+            // .5. 截图 将身份证数字区域截出来
             // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
             let w = faceBounds.width * 3.1 //image.size.width //
             let x = faceBounds.width * 1.6 //CGFloat = 0 //
@@ -107,7 +107,7 @@ public struct KGPreProcessing {
                                            inputEdge1: 0.85 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0)).outputImage!
         debugBlock?(inputImage)
 
-        return KGPreProcessing.segment(inputImage, debugBlock: debugBlock)
+        return inputImage
     }
 
     public static func segment(_ numbersImage: CIImage, debugBlock: ((CIImage) -> ())? = nil) -> [CIImage] {

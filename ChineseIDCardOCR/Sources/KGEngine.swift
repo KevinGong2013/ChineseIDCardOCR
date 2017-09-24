@@ -96,10 +96,11 @@ public extension KGEngine {
 
             DispatchQueue.global(qos: .userInteractive).async {
                 let border = (request.results?.first as? VNRectangleObservation)
-                let images =  KGPreProcessing.do(inputImage, faceBounds: faceFeature.bounds, border: border, debugBlock: self.debugBlock)
+                let numberImageArea =  KGPreProcessing.do(inputImage, faceBounds: faceFeature.bounds, border: border, debugBlock: self.debugBlock)
 
                 ///TODO: 身份证号码的字符数组，这里可以利用身份证号码添加一个基本验证
-                if let result = self.classify(IDCardNumbers: images) {
+                let numberImages = KGPreProcessing.segment(numberImageArea, debugBlock: self.debugBlock)
+                if let result = self.classify(IDCardNumbers: numberImages) {
                     completionHandler(IDCard(number: result.joined(separator: "")), nil)
                 } else {
                     completionHandler(nil, .classifyFailed)
