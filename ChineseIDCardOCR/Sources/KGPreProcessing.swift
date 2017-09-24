@@ -58,7 +58,7 @@ public struct KGPreProcessing {
         if let detectedRectangle = border {
             let boundingBox = detectedRectangle.boundingBox.scaled(to: imageSize)
 
-            // 1. 对图片进行矫正剪切
+            // 0. 对图片进行矫正剪切
             if inputImage.extent.contains(boundingBox) && boundingBox.contains(faceBounds) {
                 // Rectify the detected image and reduce it to inverted grayscale for applying model.
                 let topLeft = detectedRectangle.topLeft.scaled(to: imageSize)
@@ -74,8 +74,24 @@ public struct KGPreProcessing {
                         ])
             }
         }
-
-        //      2. 灰度图
+        
+        if !forTraining { // training的图不需要进行切割
+            
+            // 4. 截图 将身份证数字区域截出来
+            // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
+            let w = faceBounds.width * 3.1 //image.size.width //
+            let x = faceBounds.width * 1.6 //CGFloat = 0 //
+            let y: CGFloat = 0//faceBounds.origin.y + faceBounds.height //image.size.height * 0.75 // faceBounds.origin.y + faceBounds.height
+            let h = imageSize.height * 0.2
+            
+            // cropped 以后 extend 会位移，所以需要transform
+            inputImage = inputImage.cropped(to: CGRect(x: x, y: y, width: w, height: h))
+                .transformed(by: CGAffineTransform(translationX: -x, y: 0))
+        }
+        // 1. 对数字区域做字符切割
+        debugBlock?(inputImage)
+        
+        // 2. 灰度图 颜色反转
         inputImage = inputImage.applyingFilter("CIColorControls", parameters: [
             kCIInputBrightnessKey: 0,
             kCIInputSaturationKey: 0,
@@ -85,29 +101,12 @@ public struct KGPreProcessing {
             .applyingFilter("CIColorInvert")
         debugBlock?(inputImage)
         //
-        //        // 3. 去燥 二值化 invert
-
+        // 3. 去燥
         inputImage = SmoothThresholdFilter(inputImage,
                                            inputEdgeO: 0.35 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0),
                                            inputEdge1: 0.85 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0)).outputImage!
         debugBlock?(inputImage)
 
-        if !forTraining { // training的图不需要进行切割
-
-            // 4. 截图 将身份证数字区域截出来
-            // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
-            let w = faceBounds.width * 3.1 //image.size.width //
-            let x = faceBounds.width * 1.6 //CGFloat = 0 //
-            let y: CGFloat = 0//faceBounds.origin.y + faceBounds.height //image.size.height * 0.75 // faceBounds.origin.y + faceBounds.height
-            let h = imageSize.height * 0.2
-
-            // cropped 以后 extend 会位移，所以需要transform
-            inputImage = inputImage.cropped(to: CGRect(x: x, y: y, width: w, height: h))
-                .transformed(by: CGAffineTransform(translationX: -x, y: 0))
-        }
-
-        // 5. 对数字区域做字符切割
-        debugBlock?(inputImage)
         return KGPreProcessing.segment(inputImage, debugBlock: debugBlock)
     }
 

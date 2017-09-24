@@ -24,7 +24,7 @@ public class KGEngine {
     public var debugBlock: ((CIImage) -> ())?
     public static var `default`: KGEngine { return KGEngine() }
 
-    public init(_ debugBLock: ()? = nil) {
+    public init(_ debugBlock: ((CIImage) -> ())? = nil) {
         self.debugBlock = debugBlock
     }
 
