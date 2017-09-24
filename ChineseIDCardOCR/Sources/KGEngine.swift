@@ -63,17 +63,19 @@ public extension KGEngine {
     ///
     public func classify(IDCard kgImage: KGImage, completionHandler: @escaping (IDCard?, KGError?) -> ()) {
 
-        guard let ciImage = CIImage(image: kgImage) else {
+        guard let inputImage = CIImage(image: kgImage) else {
             completionHandler(nil, .invalidImage)
             return
         }
-        debugBlock?(ciImage)
+        debugBlock?(inputImage)
         
-        guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(kgImage.imageOrientation.rawValue)) else {
-            fatalError("can't get image's orientation.")
-        }
-        let inputImage = ciImage.oriented(forExifOrientation: Int32(orientation.rawValue))
-
+        #if os(iOS)
+            guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(kgImage.imageOrientation.rawValue)) else {
+                fatalError("can't get image's orientation.")
+            }
+            let inputImage = inputImage.oriented(forExifOrientation: Int32(orientation.rawValue))
+        #endif
+        
         let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil)!
 
         let features = detector.features(in: inputImage)
@@ -114,7 +116,7 @@ public extension KGEngine {
         }
 
         // 检测身份证的矩形框 step 1
-        let handler = VNImageRequestHandler(ciImage: inputImage, orientation: orientation)
+        let handler = VNImageRequestHandler(ciImage: inputImage)
 
         DispatchQueue.global(qos: .userInteractive).async {
             do {

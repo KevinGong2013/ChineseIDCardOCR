@@ -48,6 +48,23 @@ public extension NSImage {
         }
     }
 }
+
+//NSImage * myImage  = [self currentImage];
+//NSData  * tiffData = [myImage TIFFRepresentation];
+//NSBitmapImageRep * bitmap;
+//bitmap = [NSBitmapImageRep imageRepWithData:tiffData];
+//
+//    // create CIImage from bitmap
+//CIImage * ciImage = [[CIImage alloc] initWithBitmapImageRep:bitmap];
+    
+public extension CIImage {
+    
+    public convenience init?(image: NSImage) {
+        guard let tiffData = image.tiffRepresentation else { return nil }
+        self.init(data: tiffData)
+    }
+}
+    
 #endif
 
 public extension CGImage {
