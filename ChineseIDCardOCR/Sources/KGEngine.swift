@@ -73,7 +73,7 @@ public extension KGEngine {
             guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(kgImage.imageOrientation.rawValue)) else {
                 fatalError("can't get image's orientation.")
             }
-            let inputImage = inputImage.oriented(forExifOrientation: Int32(orientation.rawValue))
+            inputImage.oriented(forExifOrientation: Int32(orientation.rawValue))
         #endif
         
         let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil)!

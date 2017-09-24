@@ -16,6 +16,10 @@
 macOS 10.13 正式版发布以后，会再更新一波，支持自己训练模型识别印刷体汉字～
 ````
 
+#### 图片处理过程
+
+[screenshort](!./images/chineseIDCard-1.png)
+
 # LICENSE
 	 Apache License
 	 Version 2.0, January 2004
