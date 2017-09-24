@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import CoreImage
 import VideoToolbox
 
+#if os(iOS)
 /// reference from: https://github.com/artemnovichkov/iOS-11-by-Examples/blob/master/iOS-11-by-Examples/CoreML/UIImage%2BCVPixelBuffer.swift
 public extension UIImage {
 
@@ -71,3 +73,25 @@ public extension UIImage {
         }
     }
 }
+#endif
+    
+public extension CGImage {
+ 
+    public var data: Data? {
+        let data = NSMutableData()
+        guard let destination = CGImageDestinationCreateWithData(data, "png" as CFString, 1, nil) else { return nil }
+        let option = [kCGImagePropertyHasAlpha: false]
+        CGImageDestinationAddImage(destination, self, option as CFDictionary)
+        CGImageDestinationFinalize(destination)
+        return data as Data
+    }
+}
+
+public extension CIImage {
+    
+    func write(to URL: URL) throws {
+        try CIContext().createCGImage(self, from: extent)?.data?.write(to: URL)
+    }
+}
+
+

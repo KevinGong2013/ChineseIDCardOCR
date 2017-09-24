@@ -26,6 +26,7 @@
 		0AA545AF1F74E853003F61A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA545AD1F74E853003F61A2 /* LaunchScreen.storyboard */; };
 		0AA545B91F7500D4003F61A2 /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545B81F7500D4003F61A2 /* KGError.swift */; };
 		0AA545BD1F750EEA003F61A2 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
+		EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -381,6 +382,7 @@
 				0A4CB88A1F76430900875276 /* KGPreProcessing.swift in Sources */,
 				0A4CB88B1F7643AA00875276 /* SmoothThresholdFilter.swift in Sources */,
 				0A4CB8861F76174C00875276 /* main.swift in Sources */,
+				EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
