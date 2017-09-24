@@ -39,6 +39,7 @@ guard let paths = fm.subpaths(atPath: numberImgesPath), paths.count > 0 else {
 
 let count = paths.count
 let semaphore = DispatchSemaphore(value: count)
+let gpuContext = CIContext(options: [kCIContextUseSoftwareRenderer: false])
 
 paths.enumerated().forEach { idx, path in
     DispatchQueue.global(qos: .userInteractive).async {
@@ -52,7 +53,7 @@ paths.enumerated().forEach { idx, path in
                 numbers.enumerated().forEach { offset, ciImage in
                     do {
                         // will fail if ciImage size is empty or too big.
-                        try ciImage.write(to: signleImageURL(idx, offset: offset))
+                        try gpuContext.createCGImage(ciImage, from: ciImage.extent)?.data?.write(to: signleImageURL(idx, offset: offset))
                     } catch {
                         print("[error] \(error.localizedDescription)")
                     }
@@ -68,6 +69,3 @@ semaphore.wait()
 
 print("done")
 print("执行`training.py`训练神经网络吧～")
-
-
-

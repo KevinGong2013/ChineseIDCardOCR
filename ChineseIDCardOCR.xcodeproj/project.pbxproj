@@ -27,6 +27,7 @@
 		0AA545B91F7500D4003F61A2 /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545B81F7500D4003F61A2 /* KGError.swift */; };
 		0AA545BD1F750EEA003F61A2 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
 		EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
+		EB3625061F781986007223C8 /* KGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3625051F781986007223C8 /* KGImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		0AA545B01F74E853003F61A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA545B81F7500D4003F61A2 /* KGError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGError.swift; sourceTree = "<group>"; };
 		0AA545BC1F750EEA003F61A2 /* KGUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGUtils.swift; sourceTree = "<group>"; };
+		EB3625051F781986007223C8 /* KGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				0AA545BC1F750EEA003F61A2 /* KGUtils.swift */,
 				0A4CB8531F76092000875276 /* KGPreProcessing.swift */,
 				0A4CB8551F760C2C00875276 /* SmoothThresholdFilter.swift */,
+				EB3625051F781986007223C8 /* KGImage.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA545BD1F750EEA003F61A2 /* KGUtils.swift in Sources */,
+				EB3625061F781986007223C8 /* KGImage.swift in Sources */,
 				0A4CB8561F760C2C00875276 /* SmoothThresholdFilter.swift in Sources */,
 				0A4CB8541F76092000875276 /* KGPreProcessing.swift in Sources */,
 				0AA545B91F7500D4003F61A2 /* KGError.swift in Sources */,

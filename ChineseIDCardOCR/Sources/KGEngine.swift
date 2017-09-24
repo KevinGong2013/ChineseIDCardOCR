@@ -6,8 +6,6 @@
 //  Copyright © 2017 Kevin.Gong. All rights reserved.
 //
 
-
-import UIKit
 import Vision
 
 public struct IDCard {
@@ -20,7 +18,9 @@ public struct IDCard {
 public class KGEngine {
 
     lazy var model = KGNetCNN() // for signle prediction
-
+//    Creating a CIContext is an expensive operation, so a cached context should always be used for repeated resizing
+    lazy var gpuContext = CIContext(options: [kCIContextUseSoftwareRenderer: false])
+    
     public var debugBlock: ((CIImage) -> ())?
     public static var `default`: KGEngine { return KGEngine() }
 
@@ -36,8 +36,10 @@ public class KGEngine {
     /// - returns: 分类结果.
     ///            数字对应的概率. 比如 (1, 0.87)
     public func prediction(_ image: CIImage) -> (String, Double)? {
-        let uiImage = UIImage(ciImage: image).resize(to: CGSize(width: 28, height: 28))
-        guard let pixelBuffer = uiImage.buffer() else { fatalError("can't get image's pixel buffer") }
+        guard let cgImage = gpuContext.createCGImage(image, from: image.extent) else {
+            fatalError(KGError.invalidImage.localizedDescription)
+        }
+        guard let pixelBuffer = cgImage.pixelBuffer() else { fatalError("can't get image's pixel buffer") }
         if let f = debugBlock {
             f(CIImage(cvPixelBuffer: pixelBuffer))
         }
@@ -59,14 +61,17 @@ public extension KGEngine {
     ///
     /// - returns: 身份证号码
     ///
-    public func classify(IDCard uiImage: UIImage, completionHandler: @escaping (IDCard?, KGError?) -> ()) {
+    public func classify(IDCard kgImage: KGImage, completionHandler: @escaping (IDCard?, KGError?) -> ()) {
 
-        guard let ciImage = CIImage(image: uiImage) else {
+        guard let ciImage = CIImage(image: kgImage) else {
             completionHandler(nil, .invalidImage)
             return
         }
         debugBlock?(ciImage)
-        let orientation = CGImagePropertyOrientation(rawValue: UInt32(uiImage.imageOrientation.rawValue))!
+        
+        guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(kgImage.imageOrientation.rawValue)) else {
+            fatalError("can't get image's orientation.")
+        }
         let inputImage = ciImage.oriented(forExifOrientation: Int32(orientation.rawValue))
 
         let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil)!

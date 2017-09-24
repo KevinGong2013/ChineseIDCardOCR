@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         engine.debugBlock = { image in
             self.images.append(UIImage(ciImage: image))
         }

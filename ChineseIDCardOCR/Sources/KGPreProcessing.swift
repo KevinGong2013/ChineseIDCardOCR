@@ -104,7 +104,7 @@ public struct KGPreProcessing {
         // 3. 去燥
         inputImage = SmoothThresholdFilter(inputImage,
                                            inputEdgeO: 0.35 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0),
-                                           inputEdge1: 0.85 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0)).outputImage!
+                                           inputEdge1: 0.85 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0)).outputImage ?? inputImage
         debugBlock?(inputImage)
 
         return inputImage
@@ -142,11 +142,15 @@ public struct KGPreProcessing {
                     let y = c.boundingBox.origin.y * imageHeight - 2
                     let width = c.boundingBox.size.width * imageWidth + 4
                     let height = c.boundingBox.size.height * imageHeight + 4
-
-                    // 将文字切割出来
+                    
+                    let scale = width > height ? 28 / width : 28 / height
+                    // 将文字切割出来 缩放到28X28
                     let image = numbersImage.cropped(to: CGRect(x: x, y: y, width: width, height: height))
                         .transformed(by: CGAffineTransform(translationX: -x, y: -y))
-
+                        .applyingFilter("CILanczosScaleTransform",
+                                        parameters: [kCIInputScaleKey: scale,
+                                                     kCIInputAspectRatioKey: height / width])
+                    
                     images.append(image)
                 }
             }
