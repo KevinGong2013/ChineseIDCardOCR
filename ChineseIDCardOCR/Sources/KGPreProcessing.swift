@@ -109,6 +109,13 @@ public struct KGPreProcessing {
 
         return inputImage
     }
+    
+    /// 对完整的身份号码区域进行分割
+    ///
+    /// - parameter image: 预处理过的身份证号码区域
+    ///
+    /// - returns: 切割后的18位号码小图
+    ///
 
     public static func segment(_ numbersImage: CIImage, debugBlock: ((CIImage) -> ())? = nil) -> [CIImage] {
 
