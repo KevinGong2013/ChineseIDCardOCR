@@ -33,7 +33,7 @@ let _ = try? fm.createDirectory(atPath: signleImagePath, withIntermediateDirecto
 }
 
 guard let paths = fm.subpaths(atPath: numberImgesPath), paths.count > 0 else {
-    print("请先执行`generateNumberImages.py`, 生成身份证号码图片")
+    print("请先执行`generateNumberImages.py`, 生成身份证号码图片.")
     exit(EX_OK)
 }
 
