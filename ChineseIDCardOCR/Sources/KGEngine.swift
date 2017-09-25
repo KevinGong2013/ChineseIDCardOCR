@@ -70,9 +70,7 @@ public extension KGEngine {
         debugBlock?(inputImage)
         
         #if os(iOS)
-            guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(kgImage.imageOrientation.rawValue)) else {
-                fatalError("can't get image's orientation.")
-            }
+            let orientation = CGImagePropertyOrientation(kgImage.imageOrientation)
             inputImage.oriented(forExifOrientation: Int32(orientation.rawValue))
         #endif
         
