@@ -14,6 +14,9 @@
 		0A4CB8861F76174C00875276 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8851F76174C00875276 /* main.swift */; };
 		0A4CB88A1F76430900875276 /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8531F76092000875276 /* KGPreProcessing.swift */; };
 		0A4CB88B1F7643AA00875276 /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8551F760C2C00875276 /* SmoothThresholdFilter.swift */; };
+		0A5C94081F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */; };
+		0A5C94091F78E69C00836BF6 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */; };
+		0A5C940A1F78E69D00836BF6 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */; };
 		0AA545861F74DC94003F61A2 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */; };
 		0AA5458B1F74DC94003F61A2 /* ChineseIDCardOCRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5458A1F74DC94003F61A2 /* ChineseIDCardOCRTests.swift */; };
 		0AA5458D1F74DC94003F61A2 /* ChineseIDCardOCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,6 +86,7 @@
 		0A4CB8551F760C2C00875276 /* SmoothThresholdFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothThresholdFilter.swift; sourceTree = "<group>"; };
 		0A4CB8831F76174C00875276 /* TrainingDataGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TrainingDataGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4CB8851F76174C00875276 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveThresholdFilter.swift; sourceTree = "<group>"; };
 		0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR.h; sourceTree = "<group>"; };
 		0AA545801F74DC94003F61A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				0A4CB8531F76092000875276 /* KGPreProcessing.swift */,
 				0A4CB8551F760C2C00875276 /* SmoothThresholdFilter.swift */,
 				EB3625051F781986007223C8 /* KGImage.swift */,
+				0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A4CB88A1F76430900875276 /* KGPreProcessing.swift in Sources */,
+				0A5C940A1F78E69D00836BF6 /* AdaptiveThresholdFilter.swift in Sources */,
 				0A4CB88B1F7643AA00875276 /* SmoothThresholdFilter.swift in Sources */,
 				0A4CB8861F76174C00875276 /* main.swift in Sources */,
 				EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */,
@@ -461,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA545BD1F750EEA003F61A2 /* KGUtils.swift in Sources */,
+				0A5C94081F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift in Sources */,
 				EB3625061F781986007223C8 /* KGImage.swift in Sources */,
 				0A4CB8561F760C2C00875276 /* SmoothThresholdFilter.swift in Sources */,
 				0A4CB8541F76092000875276 /* KGPreProcessing.swift in Sources */,
@@ -492,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB3625151F781B54007223C8 /* KGError.swift in Sources */,
+				0A5C94091F78E69C00836BF6 /* AdaptiveThresholdFilter.swift in Sources */,
 				EB3625141F781B54007223C8 /* KGEngine.swift in Sources */,
 				EB3625171F781B54007223C8 /* KGPreProcessing.swift in Sources */,
 				EB3625181F781B54007223C8 /* SmoothThresholdFilter.swift in Sources */,

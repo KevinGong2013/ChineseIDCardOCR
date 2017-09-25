@@ -10,6 +10,10 @@ import Foundation
 import Vision
 import CoreImage
 
+#if os(macOS)
+import AppKit
+#endif
+
 extension CGFloat {
 
     /// Returns a random floating point number between 0.0 and 1.0, inclusive.
@@ -45,81 +49,167 @@ extension CGPoint {
 
 public struct KGPreProcessing {
 
-    /// 对身份证图片进行预处理
+    /// 对待处理图片进行识别前预处理
     ///
-    /// - parameter image: 身份证原始图片
+    /// - parameter image: 待处理图片
     ///
-    /// - returns: 返回处理后后的身份证号图片
+    /// - returns: 返回处理后后的图片
 
-    public static func `do`(_ image: CIImage, faceBounds: CGRect, border: VNRectangleObservation? = nil, debugBlock: ((CIImage) -> ())? = nil, forTraining: Bool = false) -> CIImage {
-        let imageSize = image.extent.size
-        var inputImage = image
+    public static func `do`(_ numbersAreaImage: CIImage, debugBlock: ((CIImage) -> ())? = nil, forTraining: Bool = false) -> CIImage {
 
-        if let detectedRectangle = border {
-            let boundingBox = detectedRectangle.boundingBox.scaled(to: imageSize)
 
-            // 0. 对图片进行矫正剪切
-            if inputImage.extent.contains(boundingBox) && boundingBox.contains(faceBounds) {
-                // Rectify the detected image and reduce it to inverted grayscale for applying model.
-                let topLeft = detectedRectangle.topLeft.scaled(to: imageSize)
-                let topRight = detectedRectangle.topRight.scaled(to: imageSize)
-                let bottomLeft = detectedRectangle.bottomLeft.scaled(to: imageSize)
-                let bottomRight = detectedRectangle.bottomRight.scaled(to: imageSize)
-                inputImage = inputImage.cropped(to: boundingBox)
-                    .applyingFilter("CIPerspectiveCorrection", parameters: [
-                        "inputTopLeft": CIVector(cgPoint: topLeft),
-                        "inputTopRight": CIVector(cgPoint: topRight),
-                        "inputBottomLeft": CIVector(cgPoint: bottomLeft),
-                        "inputBottomRight": CIVector(cgPoint: bottomRight)
-                        ])
-            }
-        }
-        
-        if !forTraining { // training的图不需要进行切割
-            
-            // .5. 截图 将身份证数字区域截出来
-            // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
-            let w = faceBounds.width * 3.1 //image.size.width //
-            let x = faceBounds.width * 1.6 //CGFloat = 0 //
-            let y: CGFloat = 0//faceBounds.origin.y + faceBounds.height //image.size.height * 0.75 // faceBounds.origin.y + faceBounds.height
-            let h = imageSize.height * 0.2
-            
-            // cropped 以后 extend 会位移，所以需要transform
-            inputImage = inputImage.cropped(to: CGRect(x: x, y: y, width: w, height: h))
-                .transformed(by: CGAffineTransform(translationX: -x, y: 0))
-        }
-        // 1. 对数字区域做字符切割
+        var inputImage = numbersAreaImage
+
+        // 0x00. 灰度图
+        inputImage = inputImage.applyingFilter("CIColorMonochrome", parameters: [kCIInputColorKey: CIColor(red: 0.75, green: 0.75, blue: 0.75)])
         debugBlock?(inputImage)
-        
-        // 2. 灰度图 颜色反转
+
+        // 0x01. 提升亮度, 亮度 可以损失一部分背景纹理 饱和度不能太高
         inputImage = inputImage.applyingFilter("CIColorControls", parameters: [
-            kCIInputBrightnessKey: 0,
-            kCIInputSaturationKey: 0,
+            kCIInputSaturationKey: 0.4,
+            kCIInputBrightnessKey: 0.2,
             kCIInputContrastKey: 1.1])
-            .applyingFilter("CIExposureAdjust", parameters: [kCIInputEVKey: 0.7])
-            .applyingGaussianBlur(sigma: 1)
-            .applyingFilter("CIColorInvert")
         debugBlock?(inputImage)
-        //
-        // 3. 去燥
+
+        // 0x02 曝光调节
+        inputImage = inputImage.applyingFilter("CIExposureAdjust", parameters: [kCIInputEVKey: 0.7])
+        debugBlock?(inputImage)
+
+        // 0x03 高斯模糊
+        inputImage = inputImage.applyingGaussianBlur(sigma: 0.4)
+        debugBlock?(inputImage)
+
+        // 0x04. 去燥
         inputImage = SmoothThresholdFilter(inputImage,
                                            inputEdgeO: 0.35 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0),
                                            inputEdge1: 0.85 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0)).outputImage ?? inputImage
         debugBlock?(inputImage)
 
+        // 0x06 增强文字轮廓
+        inputImage = inputImage.applyingFilter("CIUnsharpMask", parameters: [kCIInputRadiusKey: 2.5, kCIInputIntensityKey: 0.5])
+        debugBlock?(inputImage)
+
+        return inputImage
+    }
+
+    /// 检测并截取图片上的身份证号码所在区域
+    ///
+    /// - parameter image: 身份证原始图片
+    ///
+    /// - returns: 返回截取后的身份证号码区域
+
+    public static func detectChineseIDCardNumbersAra(_ cardImage: CIImage, debugBlock: ((CIImage) -> ())? = nil, forTraining: Bool = false) -> CIImage? {
+
+        let imageSize = cardImage.extent.size
+        var inputImage = cardImage
+        var croppedSize = imageSize // 用于根据身份证比例定位号码所在区域
+        // step 1: 检测身份证的矩形框
+        let detectRectangleSemaphore = DispatchSemaphore(value: 0)
+        let rectangleRequest = VNDetectRectanglesRequest { (request, err) in
+            defer { detectRectangleSemaphore.signal() }
+            // FIXME: 查找最大的一个矩形
+            if let recttangleObservation = (request.results?.first as? VNRectangleObservation) {
+                let boundingBox = recttangleObservation.boundingBox.scaled(to: imageSize)
+                if inputImage.extent.contains(boundingBox) {
+                    // Rectify the detected image and reduce it to inverted grayscale for applying model.
+                    let topLeft = recttangleObservation.topLeft.scaled(to: imageSize)
+                    let topRight = recttangleObservation.topRight.scaled(to: imageSize)
+                    let bottomLeft = recttangleObservation.bottomLeft.scaled(to: imageSize)
+                    let bottomRight = recttangleObservation.bottomRight.scaled(to: imageSize)
+                    inputImage = inputImage.cropped(to: boundingBox)
+                        .applyingFilter("CIPerspectiveCorrection", parameters: [
+                            "inputTopLeft": CIVector(cgPoint: topLeft),
+                            "inputTopRight": CIVector(cgPoint: topRight),
+                            "inputBottomLeft": CIVector(cgPoint: bottomLeft),
+                            "inputBottomRight": CIVector(cgPoint: bottomRight)
+                            ])
+                    croppedSize = boundingBox.size
+                    debugBlock?(inputImage)
+                }
+            }
+        }
+
+        // 检测身份证的矩形框 step 1
+        let handler = VNImageRequestHandler(ciImage: inputImage)
+
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                try handler.perform([rectangleRequest])
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+
+        detectRectangleSemaphore.wait()
+
+        if !forTraining { // training的图不需要进行切割
+
+            // step 2: 快速的进行一个人脸定位
+            let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil)!
+            let features = detector.features(in: inputImage)
+
+            guard let faceFeature = features.first as? CIFaceFeature, faceFeature.hasLeftEyePosition &&
+                faceFeature.hasRightEyePosition &&
+                faceFeature.hasMouthPosition &&
+                !faceFeature.leftEyeClosed &&
+                !faceFeature.rightEyeClosed else {
+                    return nil
+            }
+
+            if let f = debugBlock { // 将脸部的矩形画出来
+                guard let cgImage = CIContext().createCGImage(inputImage, from: inputImage.extent) else { fatalError() }
+                #if os(iOS)
+                    let size = CGSize(width: cgImage.width, height: cgImage.height)
+                    UIGraphicsBeginImageContext(size)
+                    let context = UIGraphicsGetCurrentContext()
+                    context?.setStrokeColor(UIColor.red.cgColor)
+                    context?.translateBy(x: 0, y: CGFloat(size.height))
+                    context?.scaleBy(x: 1, y: -1)
+                    context?.draw(cgImage, in: CGRect(origin: .zero, size: size))
+                    UIColor.red.setFill()
+                    context?.stroke(faceFeature.bounds, width: 0.5)
+                    let drawnImage = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
+                    f(CIImage(image: drawnImage!)!)
+                #else
+                    let image = NSImage(cgImage: cgImage, size: inputImage.extent.size)
+                    image.lockFocus()
+                    let bezierPath = NSBezierPath()
+                    let rect = NSRect(origin: faceFeature.bounds.origin, size: faceFeature.bounds.size)
+                    bezierPath.appendRect(rect)
+                    bezierPath.stroke()
+                    image.unlockFocus()
+                    f(CIImage(image: image)!)
+                #endif
+
+            }
+
+            // .5. 截图 将身份证数字区域截出来
+            // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
+            let fb = faceFeature.bounds
+            let y = croppedSize.height - (fb.origin.y + fb.size.height + fb.size.height + fb.size.height / 2)
+            let rect = CGRect(x: fb.origin.x - 1.8 * fb.size.width,
+                              y: y > 0 ? y : 0 ,
+                              width: 3.5 * fb.size.width,
+                              height: fb.height)
+            inputImage = inputImage.cropped(to: rect)
+                .transformed(by: CGAffineTransform(translationX: -rect.origin.x, y: -rect.origin.y))
+
+            debugBlock?(inputImage)
+        }
+
         return inputImage
     }
     
-    /// 对完整的身份号码区域进行分割
+    /// 识别图片上的文字区域，分割 去噪 二值化
     ///
-    /// - parameter image: 预处理过的身份证号码区域
+    /// - parameter image: 待识别分割的图片
     ///
-    /// - returns: 切割后的18位号码小图
+    /// - returns: 切割文字后的所有文字小图片
     ///
+    public static func segment(_ numbersImage: CIImage, debugBlock: ((CIImage) -> ())? = nil) -> [(CIImage, CGRect)] {
 
-    public static func segment(_ numbersImage: CIImage, debugBlock: ((CIImage) -> ())? = nil) -> [CIImage] {
-
-        var images = [CIImage]()
+        var images = [(CIImage, CGRect)]()
         let group = DispatchGroup()
 
         let detectTextRequest = VNDetectTextRectanglesRequest { (vr, err) in
@@ -142,16 +232,18 @@ public struct KGPreProcessing {
                     let y = c.boundingBox.origin.y * imageHeight - 2
                     let width = c.boundingBox.size.width * imageWidth + 4
                     let height = c.boundingBox.size.height * imageHeight + 4
-                    
-                    let scale = width > height ? 28 / width : 28 / height
-                    // 将文字切割出来 缩放到28X28
-                    let image = numbersImage.cropped(to: CGRect(x: x, y: y, width: width, height: height))
+
+                    let rect = CGRect(x: x, y: y, width: width, height: height)
+                    // 将文字切割出来 缩放到28X28 去噪 二值化
+                    var image = numbersImage.cropped(to: rect)
                         .transformed(by: CGAffineTransform(translationX: -x, y: -y))
                         .applyingFilter("CILanczosScaleTransform",
-                                        parameters: [kCIInputScaleKey: scale,
-                                                     kCIInputAspectRatioKey: height / width])
-                    
-                    images.append(image)
+                                        parameters: [kCIInputScaleKey: 28 / height,
+                                                     kCIInputAspectRatioKey: 28 / (width * 28 / height)])
+
+                    image = SmoothThresholdFilter(image, inputEdgeO: 0.15, inputEdge1: 0.9).outputImage ?? image
+                    image = AdaptiveThresholdFilter(image).outputImage ?? image
+                    images.append((image, rect))
                 }
             }
         }

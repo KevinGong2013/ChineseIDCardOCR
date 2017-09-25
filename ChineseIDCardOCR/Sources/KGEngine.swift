@@ -73,54 +73,30 @@ public extension KGEngine {
             let orientation = CGImagePropertyOrientation(kgImage.imageOrientation)
             inputImage.oriented(forExifOrientation: Int32(orientation.rawValue))
         #endif
-        
-        let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil)!
 
-        let features = detector.features(in: inputImage)
-
-        // 检测不到身份证上的照片
-        guard let faceFeature = features.first as? CIFaceFeature else {
-            completionHandler(nil, .noFaceDetected)
-            return
-        }
-
-        // 照片不完整
-        guard faceFeature.hasLeftEyePosition &&
-              faceFeature.hasRightEyePosition &&
-              faceFeature.hasMouthPosition &&
-              !faceFeature.leftEyeClosed &&
-              !faceFeature.rightEyeClosed else {
-
-                completionHandler(nil, .faceInfoIncorrect)
-            return
-        }
-
-        // 检测身份证的矩形框 step 2
-        let rectangleRequest = VNDetectRectanglesRequest { [weak self] (request, err) in
-            guard let `self` = self else { return }
-
-            DispatchQueue.global(qos: .userInteractive).async {
-                let border = (request.results?.first as? VNRectangleObservation)
-                let numberImageArea =  KGPreProcessing.do(inputImage, faceBounds: faceFeature.bounds, border: border, debugBlock: self.debugBlock)
-
-                ///TODO: 身份证号码的字符数组，这里可以利用身份证号码添加一个基本验证
-                let numberImages = KGPreProcessing.segment(numberImageArea, debugBlock: self.debugBlock)
-                if let result = self.classify(IDCardNumbers: numberImages) {
-                    completionHandler(IDCard(number: result.joined(separator: "")), nil)
-                } else {
-                    completionHandler(nil, .classifyFailed)
-                }
-            }
-        }
-
-        // 检测身份证的矩形框 step 1
-        let handler = VNImageRequestHandler(ciImage: inputImage)
-
+        ///
+        /// 1. 检测身份证号码所在区域 并截取出来
+        ///
+        /// 2. 对图片进行一些里的预处理
+        ///
+        /// 3. 把每一个数字截出来，并且去噪 二值化
+        ///
+        /// 4. CNN 分类识别
+        ///
+        /// 5. TODO 根据身份证规则验证
+        ///
         DispatchQueue.global(qos: .userInteractive).async {
-            do {
-                try handler.perform([rectangleRequest])
-            } catch {
-                completionHandler(nil, .unexpected(error))
+            guard let numberArea = KGPreProcessing.detectChineseIDCardNumbersAra(inputImage) else {
+                completionHandler(nil, .faceInfoIncorrect)
+                return
+            }
+            let preprocessedImage = KGPreProcessing.do(numberArea, debugBlock: self.debugBlock)
+            let numbers = KGPreProcessing.segment(preprocessedImage, debugBlock: self.debugBlock)
+
+            if let result = self.classify(IDCardNumbers: numbers.map { x in x.0 }) {
+                completionHandler(IDCard(number: result.joined(separator: "")), nil)
+            } else {
+               completionHandler(nil, .classifyFailed)
             }
         }
     }
