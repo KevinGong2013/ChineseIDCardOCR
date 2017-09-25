@@ -48,14 +48,6 @@ public extension NSImage {
         }
     }
 }
-
-//NSImage * myImage  = [self currentImage];
-//NSData  * tiffData = [myImage TIFFRepresentation];
-//NSBitmapImageRep * bitmap;
-//bitmap = [NSBitmapImageRep imageRepWithData:tiffData];
-//
-//    // create CIImage from bitmap
-//CIImage * ciImage = [[CIImage alloc] initWithBitmapImageRep:bitmap];
     
 public extension CIImage {
     
