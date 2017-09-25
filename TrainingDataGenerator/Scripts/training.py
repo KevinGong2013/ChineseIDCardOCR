@@ -3,7 +3,6 @@ import numpy as np
 
 import keras
 
-from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dense, Dropout, Flatten
 from keras.utils import np_utils
@@ -21,7 +20,7 @@ num_classes = 11
 
 
 # Import data
-(X_train, y_train), (X_test, y_test) = mnist.load_data()
+# (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
 X_train = X_train.reshape(X_train.shape[0], num_rows, num_cols, num_channels).astype(np.float32) / 255
 X_test = X_test.reshape(X_test.shape[0], num_rows, num_cols, num_channels).astype(np.float32) / 255
