@@ -44,8 +44,7 @@ let gpuContext = CIContext(options: [kCIContextUseSoftwareRenderer: false])
 paths.enumerated().forEach { idx, path in
     DispatchQueue.global(qos: .userInteractive).async {
         if let image = CIImage(contentsOf: name(idx)) {
-            let numberArea = KGPreProcessing.do(image, faceBounds: CGRect.zero, forTraining: true)
-            let numbers = KGPreProcessing.segment(numberArea)
+            let numbers = KGPreProcessing.segment(KGPreProcessing.do(image, forTraining: true)).map { x in x.0 }
             if numbers.count != 10 {
                 print("bad image idx: \(idx)")
             } else {
