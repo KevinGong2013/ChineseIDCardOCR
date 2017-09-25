@@ -21,21 +21,36 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        let e = collectionView.contentInset
+        collectionView.contentInset = UIEdgeInsets(top: e.top, left: e.left,
+                                                   bottom: e.bottom + 44, right: e.right)
+
         engine.debugBlock = { image in
             self.images.append(UIImage(ciImage: image))
         }
 
-        engine.classify(IDCard: #imageLiteral(resourceName: "demo1")) { (idcard, error) in
-            guard let card = idcard else {
-                debugPrint(error?.localizedDescription ?? "unknow error")
-                return
-            }
-            debugPrint(card)
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
+//        engine.classify(IDCard: #imageLiteral(resourceName: "demo1")) { (idcard, error) in
+//            guard let card = idcard else {
+//                debugPrint(error?.localizedDescription ?? "unknow error")
+//                return
+//            }
+//            debugPrint(card)
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//        }
+    }
+
+    @IBAction func chooseImage(_ sender: UIBarButtonItem) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .savedPhotosAlbum
+        present(picker, animated: true)
+    }
+
+    @IBAction func scan(_ sender: UIBarButtonItem) {
+        
     }
 }
 
@@ -68,11 +83,32 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
-class PreviewImageCollectionViewCell: UICollectionViewCell {
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var previewImageView: UIImageView!
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+
+        guard let uiImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+            else { fatalError("no image from image picker") }
+
+        images.removeAll()
+        collectionView.reloadData()
+
+        engine.classify(IDCard: uiImage) { idcard, error in
+            guard let card = idcard else {
+                debugPrint(error?.localizedDescription ?? "unknow error")
+                return
+            }
+            debugPrint(card)
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
 }
 
 
+class PreviewImageCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var previewImageView: UIImageView!
+}

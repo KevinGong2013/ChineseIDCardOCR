@@ -17,6 +17,8 @@
 		0A5C94081F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */; };
 		0A5C94091F78E69C00836BF6 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */; };
 		0A5C940A1F78E69D00836BF6 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */; };
+		0A5C940C1F78EBCE00836BF6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */; };
+		0A5C940F1F78EE7300836BF6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */; };
 		0AA545861F74DC94003F61A2 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */; };
 		0AA5458B1F74DC94003F61A2 /* ChineseIDCardOCRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5458A1F74DC94003F61A2 /* ChineseIDCardOCRTests.swift */; };
 		0AA5458D1F74DC94003F61A2 /* ChineseIDCardOCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,6 +89,7 @@
 		0A4CB8831F76174C00875276 /* TrainingDataGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TrainingDataGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4CB8851F76174C00875276 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveThresholdFilter.swift; sourceTree = "<group>"; };
+		0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR.h; sourceTree = "<group>"; };
 		0AA545801F74DC94003F61A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 			children = (
 				0AA545A41F74E853003F61A2 /* AppDelegate.swift */,
 				0AA545A61F74E853003F61A2 /* ViewController.swift */,
+				0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */,
 				0AA545A81F74E853003F61A2 /* Main.storyboard */,
 				0AA545AB1F74E853003F61A2 /* Assets.xcassets */,
 				0AA545AD1F74E853003F61A2 /* LaunchScreen.storyboard */,
@@ -474,6 +478,7 @@
 				0AA545B91F7500D4003F61A2 /* KGError.swift in Sources */,
 				0AA5459B1F74DE29003F61A2 /* KGNetCNN.mlmodel in Sources */,
 				0AA545981F74DD27003F61A2 /* KGEngine.swift in Sources */,
+				0A5C940C1F78EBCE00836BF6 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +496,7 @@
 			files = (
 				0AA545A71F74E853003F61A2 /* ViewController.swift in Sources */,
 				0AA545A51F74E853003F61A2 /* AppDelegate.swift in Sources */,
+				0A5C940F1F78EE7300836BF6 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
