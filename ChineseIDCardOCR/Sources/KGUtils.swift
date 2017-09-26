@@ -82,16 +82,7 @@ public extension CIImage {
 #endif
 
 public extension CGImage {
- 
-    public var data: Data? {
-        let data = NSMutableData()
-        guard let destination = CGImageDestinationCreateWithData(data, "png" as CFString, 1, nil) else { return nil }
-        let option = [kCGImagePropertyHasAlpha: false]
-        CGImageDestinationAddImage(destination, self, option as CFDictionary)
-        CGImageDestinationFinalize(destination)
-        return data as Data
-    }
-    
+     
     func pixelBuffer(_ colorspace: CGColorSpace = CGColorSpaceCreateDeviceGray()) -> CVPixelBuffer? {
         var pb: CVPixelBuffer? = nil
         

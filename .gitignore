@@ -65,3 +65,5 @@ fastlane/screenshots
 fastlane/test_output
 ChineseIDCardOCR/TrainingDataGenerator/Scripts/generatedNumberImages
 TrainingDataGenerator/Scripts/generatedNumberImages
+TrainingDataGenerator/Scripts/signleImages
+TrainingDataGenerator/Scripts/testSignleImages

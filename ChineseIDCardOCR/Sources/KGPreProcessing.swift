@@ -81,7 +81,6 @@ public struct KGPreProcessing {
 
     public static func `do`(_ numbersAreaImage: CIImage, configuration conf: Configuration = Configuration(), debugBlock: ((CIImage) -> ())? = nil) -> CIImage {
 
-
         var inputImage = numbersAreaImage
 
         // 0x00. 灰度图

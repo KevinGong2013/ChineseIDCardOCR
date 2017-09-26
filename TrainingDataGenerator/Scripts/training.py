@@ -6,7 +6,7 @@ import keras
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dense, Dropout, Flatten
 from keras.utils import np_utils
-from keras.preprocessing.image import load_img, img_to_array
+from keras.preprocessing.image import load_img, img_to_array, ImageDataGenerator
 
 from keras import backend as K
 K.set_image_dim_ordering('tf')
@@ -17,16 +17,6 @@ num_channels = 1
 num_classes = 11
 
 #root= '/Users/Kevin/develop/Swift/4.0/ChineseIDCardOCR/TrainingDataGenerator/Scripts/signleImages'
-
-
-# Import data
-# (X_train, y_train), (X_test, y_test) = mnist.load_data()
-
-X_train = X_train.reshape(X_train.shape[0], num_rows, num_cols, num_channels).astype(np.float32) / 255
-X_test = X_test.reshape(X_test.shape[0], num_rows, num_cols, num_channels).astype(np.float32) / 255
-
-y_train = np_utils.to_categorical(y_train)
-y_test = np_utils.to_categorical(y_test)
 
 model = Sequential()
 
@@ -45,6 +35,7 @@ model.add(Dense(num_classes, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
+model.fit_generator(generator, samples_per_epoch, nb_epoch)
 # Training
 model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_size=200, verbose=2)
 
