@@ -123,7 +123,7 @@ public struct KGPreProcessing {
     ///
     /// - returns: 返回截取后的身份证号码区域
 
-    public static func detectChineseIDCardNumbersAra(_ cardImage: CIImage, debugBlock: ((CIImage) -> ())? = nil, forTraining: Bool = false) -> CIImage? {
+    public static func detectChineseIDCardNumbersAra(_ cardImage: CIImage, debugBlock: ((CIImage) -> ())? = nil) -> CIImage? {
 
         let imageSize = cardImage.extent.size
         var inputImage = cardImage
@@ -167,61 +167,58 @@ public struct KGPreProcessing {
 
         detectRectangleSemaphore.wait()
 
-        if !forTraining { // training的图不需要进行切割
+        // step 2: 快速的进行一个人脸定位
+        let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil)!
+        let features = detector.features(in: inputImage)
 
-            // step 2: 快速的进行一个人脸定位
-            let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil)!
-            let features = detector.features(in: inputImage)
-
-            guard let faceFeature = features.first as? CIFaceFeature, faceFeature.hasLeftEyePosition &&
-                faceFeature.hasRightEyePosition &&
-                faceFeature.hasMouthPosition &&
-                !faceFeature.leftEyeClosed &&
-                !faceFeature.rightEyeClosed else {
-                    return nil
-            }
-
-            if let f = debugBlock { // 将脸部的矩形画出来
-                guard let cgImage = CIContext().createCGImage(inputImage, from: inputImage.extent) else { fatalError() }
-                #if os(iOS)
-                    let size = CGSize(width: cgImage.width, height: cgImage.height)
-                    UIGraphicsBeginImageContext(size)
-                    let context = UIGraphicsGetCurrentContext()
-                    context?.setStrokeColor(UIColor.red.cgColor)
-                    context?.translateBy(x: 0, y: CGFloat(size.height))
-                    context?.scaleBy(x: 1, y: -1)
-                    context?.draw(cgImage, in: CGRect(origin: .zero, size: size))
-                    UIColor.red.setFill()
-                    context?.stroke(faceFeature.bounds, width: 0.5)
-                    let drawnImage = UIGraphicsGetImageFromCurrentImageContext()
-                    UIGraphicsEndImageContext()
-                    f(CIImage(image: drawnImage!)!)
-                #else
-                    let image = NSImage(cgImage: cgImage, size: inputImage.extent.size)
-                    image.lockFocus()
-                    let bezierPath = NSBezierPath()
-                    let rect = NSRect(origin: faceFeature.bounds.origin, size: faceFeature.bounds.size)
-                    bezierPath.appendRect(rect)
-                    bezierPath.stroke()
-                    image.unlockFocus()
-                    f(CIImage(image: image)!)
-                #endif
-
-            }
-
-            // .5. 截图 将身份证数字区域截出来
-            // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
-            let fb = faceFeature.bounds
-            let y = croppedSize.height - (fb.origin.y + fb.size.height + fb.size.height + fb.size.height / 2)
-            let rect = CGRect(x: fb.origin.x - 1.8 * fb.size.width,
-                              y: y > 0 ? y : 0 ,
-                              width: 3.5 * fb.size.width,
-                              height: fb.height)
-            inputImage = inputImage.cropped(to: rect)
-                .transformed(by: CGAffineTransform(translationX: -rect.origin.x, y: -rect.origin.y))
-
-            debugBlock?(inputImage)
+        guard let faceFeature = features.first as? CIFaceFeature, faceFeature.hasLeftEyePosition &&
+            faceFeature.hasRightEyePosition &&
+            faceFeature.hasMouthPosition &&
+            !faceFeature.leftEyeClosed &&
+            !faceFeature.rightEyeClosed else {
+                return nil
         }
+
+        if let f = debugBlock { // 将脸部的矩形画出来
+            guard let cgImage = CIContext().createCGImage(inputImage, from: inputImage.extent) else { fatalError() }
+            #if os(iOS)
+                let size = CGSize(width: cgImage.width, height: cgImage.height)
+                UIGraphicsBeginImageContext(size)
+                let context = UIGraphicsGetCurrentContext()
+                context?.setStrokeColor(UIColor.red.cgColor)
+                context?.translateBy(x: 0, y: CGFloat(size.height))
+                context?.scaleBy(x: 1, y: -1)
+                context?.draw(cgImage, in: CGRect(origin: .zero, size: size))
+                UIColor.red.setFill()
+                context?.stroke(faceFeature.bounds, width: 0.5)
+                let drawnImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                f(CIImage(image: drawnImage!)!)
+            #else
+                let image = NSImage(cgImage: cgImage, size: inputImage.extent.size)
+                image.lockFocus()
+                let bezierPath = NSBezierPath()
+                let rect = NSRect(origin: faceFeature.bounds.origin, size: faceFeature.bounds.size)
+                bezierPath.appendRect(rect)
+                bezierPath.stroke()
+                image.unlockFocus()
+                f(CIImage(image: image)!)
+            #endif
+
+        }
+
+        // .5. 截图 将身份证数字区域截出来
+        // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
+        let fb = faceFeature.bounds
+        let y = croppedSize.height - (fb.origin.y + fb.size.height + fb.size.height + fb.size.height / 2)
+        let rect = CGRect(x: fb.origin.x - 1.8 * fb.size.width,
+                          y: y > 0 ? y : 0 ,
+                          width: 3.5 * fb.size.width,
+                          height: fb.height)
+        inputImage = inputImage.cropped(to: rect)
+            .transformed(by: CGAffineTransform(translationX: -rect.origin.x, y: -rect.origin.y))
+
+        debugBlock?(inputImage)
 
         return inputImage
     }
