@@ -49,44 +49,69 @@ extension CGPoint {
 
 public struct KGPreProcessing {
 
+    // 根据自己特定业务下的图片，可以调整相应的预处理参数
+    
+    public struct Configuration {
+
+        public var colorMonochromeFilterInputColor: CIColor // CIColorMonochrome kCIInputColorKey 参数
+        public var colorControls: (CGFloat, CGFloat, CGFloat) // CIColorControls Saturation, Brightness, Contrast
+        public var exposureAdjustEV: CGFloat // CIExposureAdjust IInputEVKey
+
+        public var gaussianBlurSigma: Double
+
+        public var smoothThresholdFilter: (CGFloat, CGFloat) // inputEdgeO, inputEdge1
+
+        public var unsharpMask: (CGFloat, CGFloat) // Radius, Intensity
+
+        public init() {
+            colorMonochromeFilterInputColor = CIColor(red: 0.75, green: 0.75, blue: 0.75)
+            colorControls = (0.4, 0.2, 1.1)
+            exposureAdjustEV = 0.7
+            gaussianBlurSigma = 0.4
+            smoothThresholdFilter = (0.35, 0.85)
+            unsharpMask = (2.5, 0.5)
+        }
+    }
+
     /// 对待处理图片进行识别前预处理
     ///
     /// - parameter image: 待处理图片
     ///
     /// - returns: 返回处理后后的图片
 
-    public static func `do`(_ numbersAreaImage: CIImage, debugBlock: ((CIImage) -> ())? = nil, forTraining: Bool = false) -> CIImage {
+    public static func `do`(_ numbersAreaImage: CIImage, configuration conf: Configuration = Configuration(), debugBlock: ((CIImage) -> ())? = nil) -> CIImage {
 
 
         var inputImage = numbersAreaImage
 
         // 0x00. 灰度图
-        inputImage = inputImage.applyingFilter("CIColorMonochrome", parameters: [kCIInputColorKey: CIColor(red: 0.75, green: 0.75, blue: 0.75)])
+        inputImage = inputImage.applyingFilter("CIColorMonochrome", parameters: [kCIInputColorKey: conf.colorMonochromeFilterInputColor])
         debugBlock?(inputImage)
 
         // 0x01. 提升亮度, 亮度 可以损失一部分背景纹理 饱和度不能太高
         inputImage = inputImage.applyingFilter("CIColorControls", parameters: [
-            kCIInputSaturationKey: 0.4,
-            kCIInputBrightnessKey: 0.2,
-            kCIInputContrastKey: 1.1])
+            kCIInputSaturationKey: conf.colorControls.0,
+            kCIInputBrightnessKey: conf.colorControls.1,
+            kCIInputContrastKey: conf.colorControls.2])
         debugBlock?(inputImage)
 
         // 0x02 曝光调节
-        inputImage = inputImage.applyingFilter("CIExposureAdjust", parameters: [kCIInputEVKey: 0.7])
+        inputImage = inputImage.applyingFilter("CIExposureAdjust", parameters: [kCIInputEVKey: conf.exposureAdjustEV])
         debugBlock?(inputImage)
 
         // 0x03 高斯模糊
-        inputImage = inputImage.applyingGaussianBlur(sigma: 0.4)
+        inputImage = inputImage.applyingGaussianBlur(sigma: conf.gaussianBlurSigma)
         debugBlock?(inputImage)
 
         // 0x04. 去燥
         inputImage = SmoothThresholdFilter(inputImage,
-                                           inputEdgeO: 0.35 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0),
-                                           inputEdge1: 0.85 + (forTraining ? CGFloat.random(min: -0.1, max: 0.1) : 0)).outputImage ?? inputImage
+                                           inputEdgeO: conf.smoothThresholdFilter.0,
+                                           inputEdge1: conf.smoothThresholdFilter.1).outputImage ?? inputImage
         debugBlock?(inputImage)
 
         // 0x06 增强文字轮廓
-        inputImage = inputImage.applyingFilter("CIUnsharpMask", parameters: [kCIInputRadiusKey: 2.5, kCIInputIntensityKey: 0.5])
+        inputImage = inputImage.applyingFilter("CIUnsharpMask",
+                                               parameters: [kCIInputRadiusKey: conf.unsharpMask.0, kCIInputIntensityKey: conf.unsharpMask.1])
         debugBlock?(inputImage)
 
         return inputImage

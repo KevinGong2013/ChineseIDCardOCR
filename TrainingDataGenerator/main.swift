@@ -44,7 +44,15 @@ let gpuContext = CIContext(options: [kCIContextUseSoftwareRenderer: false])
 paths.enumerated().forEach { idx, path in
     DispatchQueue.global(qos: .userInteractive).async {
         if let image = CIImage(contentsOf: name(idx)) {
-            let numbers = KGPreProcessing.segment(KGPreProcessing.do(image, forTraining: true)).map { x in x.0 }
+            var conf = KGPreProcessing.Configuration()
+            conf.exposureAdjustEV += CGFloat.random(min: -0.1, max: 0.1)
+            conf.smoothThresholdFilter.0 += CGFloat.random(min: -0.1, max: 0.1)
+            conf.smoothThresholdFilter.1 += CGFloat.random(min: -0.1, max: 0.1)
+            conf.gaussianBlurSigma = Double(CGFloat(conf.gaussianBlurSigma) + CGFloat.random(min: -0.1, max: 0.1))
+
+            let preprocessedImage = KGPreProcessing.do(image, configuration: conf)
+            let numbers = KGPreProcessing.segment(preprocessedImage).map { x in x.0 }
+
             if numbers.count != 10 {
                 print("bad image idx: \(idx)")
             } else {
