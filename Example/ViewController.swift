@@ -30,16 +30,16 @@ class ViewController: UIViewController {
             self.images.append(UIImage(ciImage: image))
         }
 
-//        engine.classify(IDCard: #imageLiteral(resourceName: "demo1")) { (idcard, error) in
-//            guard let card = idcard else {
-//                debugPrint(error?.localizedDescription ?? "unknow error")
-//                return
-//            }
-//            debugPrint(card)
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//            }
-//        }
+        engine.classify(IDCard: #imageLiteral(resourceName: "demo1")) { (idcard, error) in
+            guard let card = idcard else {
+                debugPrint(error?.localizedDescription ?? "unknow error")
+                return
+            }
+            debugPrint(card.number)
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
 
     @IBAction func chooseImage(_ sender: UIBarButtonItem) {

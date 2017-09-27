@@ -67,3 +67,4 @@ ChineseIDCardOCR/TrainingDataGenerator/Scripts/generatedNumberImages
 TrainingDataGenerator/Scripts/generatedNumberImages
 TrainingDataGenerator/Scripts/signleImages
 TrainingDataGenerator/Scripts/testSignleImages
+KGNetCNN.h5

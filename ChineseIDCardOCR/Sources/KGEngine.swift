@@ -9,7 +9,7 @@
 import Vision
 
 public struct IDCard {
-    let number: String
+    public let number: String
 }
 
 /// MARK: -
