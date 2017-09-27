@@ -10,13 +10,8 @@
 		0A2A7C2E1F754C3E00BD65C2 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */; };
 		0A2A7C2F1F754C3E00BD65C2 /* ChineseIDCardOCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A4CB8541F76092000875276 /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8531F76092000875276 /* KGPreProcessing.swift */; };
-		0A4CB8561F760C2C00875276 /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8551F760C2C00875276 /* SmoothThresholdFilter.swift */; };
 		0A4CB8861F76174C00875276 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8851F76174C00875276 /* main.swift */; };
 		0A4CB88A1F76430900875276 /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8531F76092000875276 /* KGPreProcessing.swift */; };
-		0A4CB88B1F7643AA00875276 /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8551F760C2C00875276 /* SmoothThresholdFilter.swift */; };
-		0A5C94081F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */; };
-		0A5C94091F78E69C00836BF6 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */; };
-		0A5C940A1F78E69D00836BF6 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */; };
 		0A5C940C1F78EBCE00836BF6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */; };
 		0A5C940F1F78EE7300836BF6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */; };
 		0AA545861F74DC94003F61A2 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */; };
@@ -32,6 +27,8 @@
 		0AA545BD1F750EEA003F61A2 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
 		0AFF2B061F7B35B500D48664 /* KGNetCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */; };
 		0AFF2B071F7B35B700D48664 /* KGNetCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */; };
+		0AFF2B0D1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */; };
+		0AFF2B0E1F7B5EF400D48664 /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */; };
 		EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
 		EB3625061F781986007223C8 /* KGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3625051F781986007223C8 /* KGImage.swift */; };
 		EB3625101F781B2B007223C8 /* ChineseIDCardOCR_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = EB36250E1F781B2B007223C8 /* ChineseIDCardOCR_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,7 +36,6 @@
 		EB3625151F781B54007223C8 /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545B81F7500D4003F61A2 /* KGError.swift */; };
 		EB3625161F781B54007223C8 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
 		EB3625171F781B54007223C8 /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8531F76092000875276 /* KGPreProcessing.swift */; };
-		EB3625181F781B54007223C8 /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8551F760C2C00875276 /* SmoothThresholdFilter.swift */; };
 		EB3625191F781B54007223C8 /* KGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3625051F781986007223C8 /* KGImage.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,10 +81,8 @@
 
 /* Begin PBXFileReference section */
 		0A4CB8531F76092000875276 /* KGPreProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGPreProcessing.swift; sourceTree = "<group>"; };
-		0A4CB8551F760C2C00875276 /* SmoothThresholdFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothThresholdFilter.swift; sourceTree = "<group>"; };
 		0A4CB8831F76174C00875276 /* TrainingDataGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TrainingDataGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4CB8851F76174C00875276 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveThresholdFilter.swift; sourceTree = "<group>"; };
 		0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR.h; sourceTree = "<group>"; };
@@ -107,6 +101,8 @@
 		0AA545B81F7500D4003F61A2 /* KGError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGError.swift; sourceTree = "<group>"; };
 		0AA545BC1F750EEA003F61A2 /* KGUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGUtils.swift; sourceTree = "<group>"; };
 		0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = KGNetCNN.mlmodel; path = TrainingDataGenerator/Scripts/KGNetCNN.mlmodel; sourceTree = SOURCE_ROOT; };
+		0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveThresholdFilter.swift; sourceTree = "<group>"; };
+		0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothThresholdFilter.swift; sourceTree = "<group>"; };
 		EB3625051F781986007223C8 /* KGImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGImage.swift; sourceTree = "<group>"; };
 		EB36250C1F781B2B007223C8 /* ChineseIDCardOCR_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB36250E1F781B2B007223C8 /* ChineseIDCardOCR_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR_macOS.h; sourceTree = "<group>"; };
@@ -209,13 +205,12 @@
 		0AA545961F74DCCF003F61A2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0AFF2B0F1F7B5EF800D48664 /* Filters */,
 				0AA545971F74DD27003F61A2 /* KGEngine.swift */,
 				0AA545B81F7500D4003F61A2 /* KGError.swift */,
 				0AA545BC1F750EEA003F61A2 /* KGUtils.swift */,
 				0A4CB8531F76092000875276 /* KGPreProcessing.swift */,
-				0A4CB8551F760C2C00875276 /* SmoothThresholdFilter.swift */,
 				EB3625051F781986007223C8 /* KGImage.swift */,
-				0A5C94071F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -241,6 +236,15 @@
 			);
 			name = Example;
 			path = ../Example;
+			sourceTree = "<group>";
+		};
+		0AFF2B0F1F7B5EF800D48664 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */,
+				0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */,
+			);
+			name = Filters;
 			sourceTree = "<group>";
 		};
 		EB36250D1F781B2B007223C8 /* ChineseIDCardOCR-macOS */ = {
@@ -459,8 +463,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A4CB88A1F76430900875276 /* KGPreProcessing.swift in Sources */,
-				0A5C940A1F78E69D00836BF6 /* AdaptiveThresholdFilter.swift in Sources */,
-				0A4CB88B1F7643AA00875276 /* SmoothThresholdFilter.swift in Sources */,
 				0A4CB8861F76174C00875276 /* main.swift in Sources */,
 				EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */,
 			);
@@ -471,10 +473,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA545BD1F750EEA003F61A2 /* KGUtils.swift in Sources */,
+				0AFF2B0E1F7B5EF400D48664 /* SmoothThresholdFilter.swift in Sources */,
+				0AFF2B0D1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift in Sources */,
 				0AFF2B061F7B35B500D48664 /* KGNetCNN.mlmodel in Sources */,
-				0A5C94081F78AF3F00836BF6 /* AdaptiveThresholdFilter.swift in Sources */,
 				EB3625061F781986007223C8 /* KGImage.swift in Sources */,
-				0A4CB8561F760C2C00875276 /* SmoothThresholdFilter.swift in Sources */,
 				0A4CB8541F76092000875276 /* KGPreProcessing.swift in Sources */,
 				0AA545B91F7500D4003F61A2 /* KGError.swift in Sources */,
 				0AA545981F74DD27003F61A2 /* KGEngine.swift in Sources */,
@@ -506,10 +508,8 @@
 			files = (
 				0AFF2B071F7B35B700D48664 /* KGNetCNN.mlmodel in Sources */,
 				EB3625151F781B54007223C8 /* KGError.swift in Sources */,
-				0A5C94091F78E69C00836BF6 /* AdaptiveThresholdFilter.swift in Sources */,
 				EB3625141F781B54007223C8 /* KGEngine.swift in Sources */,
 				EB3625171F781B54007223C8 /* KGPreProcessing.swift in Sources */,
-				EB3625181F781B54007223C8 /* SmoothThresholdFilter.swift in Sources */,
 				EB3625161F781B54007223C8 /* KGUtils.swift in Sources */,
 				EB3625191F781B54007223C8 /* KGImage.swift in Sources */,
 			);
