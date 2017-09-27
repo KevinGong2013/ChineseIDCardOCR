@@ -13,12 +13,13 @@
  - Build && Run
 
 ````
-macOS 10.13 正式版发布以后，会再更新一波，支持自己训练模型识别印刷体汉字～
+由于自己电脑新能问题，训练的神经网络对一些质量较差的图片识别率不是很高～
 ````
+#### 如何训练网络 TODO
 
 #### 图片处理过程
 
-![screenshot](./images/chineseIDCard-1.png)
+![screenshot](./images/chineseIDCard-2.png)
 
 # LICENSE
 	 Apache License
