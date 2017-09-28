@@ -60,10 +60,17 @@
                                 <items>
                                     <barButtonItem systemItem="camera" id="25B-JI-PwT">
                                         <connections>
-                                            <segue destination="l7a-Mc-8kQ" kind="show" id="jDJ-Qu-vIJ"/>
+                                            <segue destination="l7a-Mc-8kQ" kind="show" id="YGD-1M-imn"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Esg-8v-itv"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="x2P-eV-VMh"/>
+                                    <barButtonItem title="Reload" id="Evq-qE-dT4">
+                                        <connections>
+                                            <action selector="reload:" destination="BYZ-38-t0r" id="EIb-ec-ab8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="8XI-gV-ba8"/>
                                     <barButtonItem title="Choose Image ..." id="FXu-XW-EJd">
                                         <connections>
                                             <action selector="chooseImage:" destination="BYZ-38-t0r" id="gZg-QY-f5y"/>

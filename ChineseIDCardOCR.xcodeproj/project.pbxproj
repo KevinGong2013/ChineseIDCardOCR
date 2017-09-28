@@ -17,6 +17,14 @@
 		0A993C981F7CADF400A0C44A /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */; };
 		0A993C991F7CADF400A0C44A /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */; };
 		0A993C9A1F7CAEB600A0C44A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993C961F7CACA800A0C44A /* Utils.swift */; };
+		0A993CBF1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A993CBD1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A993CC31F7CCDDB00A0C44A /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */; };
+		0A993CC41F7CCDDB00A0C44A /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */; };
+		0A993CC51F7CCDDB00A0C44A /* KGEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545971F74DD27003F61A2 /* KGEngine.swift */; };
+		0A993CC61F7CCDDB00A0C44A /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545B81F7500D4003F61A2 /* KGError.swift */; };
+		0A993CC71F7CCDDB00A0C44A /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
+		0A993CC81F7CCDDB00A0C44A /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8531F76092000875276 /* KGPreProcessing.swift */; };
+		0A993CC91F7CCDE000A0C44A /* KGNetCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */; };
 		0AA545861F74DC94003F61A2 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */; };
 		0AA5458B1F74DC94003F61A2 /* ChineseIDCardOCRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5458A1F74DC94003F61A2 /* ChineseIDCardOCRTests.swift */; };
 		0AA5458D1F74DC94003F61A2 /* ChineseIDCardOCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,17 +37,9 @@
 		0AA545B91F7500D4003F61A2 /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545B81F7500D4003F61A2 /* KGError.swift */; };
 		0AA545BD1F750EEA003F61A2 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
 		0AFF2B061F7B35B500D48664 /* KGNetCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */; };
-		0AFF2B071F7B35B700D48664 /* KGNetCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */; };
 		0AFF2B0D1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */; };
 		0AFF2B0E1F7B5EF400D48664 /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */; };
-		0AFF2B101F7B5F6F00D48664 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */; };
-		0AFF2B111F7B5F6F00D48664 /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */; };
 		EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
-		EB3625101F781B2B007223C8 /* ChineseIDCardOCR_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = EB36250E1F781B2B007223C8 /* ChineseIDCardOCR_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB3625141F781B54007223C8 /* KGEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545971F74DD27003F61A2 /* KGEngine.swift */; };
-		EB3625151F781B54007223C8 /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545B81F7500D4003F61A2 /* KGError.swift */; };
-		EB3625161F781B54007223C8 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
-		EB3625171F781B54007223C8 /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8531F76092000875276 /* KGPreProcessing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +88,9 @@
 		0A4CB8851F76174C00875276 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		0A993C961F7CACA800A0C44A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0A993CBB1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A993CBD1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR_macOS.h; sourceTree = "<group>"; };
+		0A993CBE1F7CCDCD00A0C44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR.h; sourceTree = "<group>"; };
 		0AA545801F74DC94003F61A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,13 +110,17 @@
 		0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = KGNetCNN.mlmodel; path = TrainingDataGenerator/Scripts/KGNetCNN.mlmodel; sourceTree = SOURCE_ROOT; };
 		0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveThresholdFilter.swift; sourceTree = "<group>"; };
 		0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothThresholdFilter.swift; sourceTree = "<group>"; };
-		EB36250C1F781B2B007223C8 /* ChineseIDCardOCR_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB36250E1F781B2B007223C8 /* ChineseIDCardOCR_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR_macOS.h; sourceTree = "<group>"; };
-		EB36250F1F781B2B007223C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0A4CB8801F76174C00875276 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A993CB71F7CCDCD00A0C44A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -143,13 +150,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB3625081F781B2B007223C8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -161,14 +161,31 @@
 			path = TrainingDataGenerator;
 			sourceTree = "<group>";
 		};
+		0A993CAF1F7CBF7400A0C44A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0A993CBC1F7CCDCD00A0C44A /* ChineseIDCardOCR-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				0A993CBD1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.h */,
+				0A993CBE1F7CCDCD00A0C44A /* Info.plist */,
+			);
+			path = "ChineseIDCardOCR-macOS";
+			sourceTree = "<group>";
+		};
 		0AA545721F74DC94003F61A2 = {
 			isa = PBXGroup;
 			children = (
 				0AA5457E1F74DC94003F61A2 /* ChineseIDCardOCR */,
 				0AA545891F74DC94003F61A2 /* ChineseIDCardOCRTests */,
 				0A4CB8841F76174C00875276 /* TrainingDataGenerator */,
-				EB36250D1F781B2B007223C8 /* ChineseIDCardOCR-macOS */,
+				0A993CBC1F7CCDCD00A0C44A /* ChineseIDCardOCR-macOS */,
 				0AA5457D1F74DC94003F61A2 /* Products */,
+				0A993CAF1F7CBF7400A0C44A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,7 +196,7 @@
 				0AA545851F74DC94003F61A2 /* ChineseIDCardOCRTests.xctest */,
 				0AA545A21F74E853003F61A2 /* Example.app */,
 				0A4CB8831F76174C00875276 /* TrainingDataGenerator */,
-				EB36250C1F781B2B007223C8 /* ChineseIDCardOCR_macOS.framework */,
+				0A993CBB1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,31 +267,22 @@
 			name = Filters;
 			sourceTree = "<group>";
 		};
-		EB36250D1F781B2B007223C8 /* ChineseIDCardOCR-macOS */ = {
-			isa = PBXGroup;
-			children = (
-				EB36250E1F781B2B007223C8 /* ChineseIDCardOCR_macOS.h */,
-				EB36250F1F781B2B007223C8 /* Info.plist */,
-			);
-			path = "ChineseIDCardOCR-macOS";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0A993CB81F7CCDCD00A0C44A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A993CBF1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AA545791F74DC94003F61A2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0AA5458D1F74DC94003F61A2 /* ChineseIDCardOCR.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB3625091F781B2B007223C8 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB3625101F781B2B007223C8 /* ChineseIDCardOCR_macOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +305,24 @@
 			productName = TrainingDataGenerator;
 			productReference = 0A4CB8831F76174C00875276 /* TrainingDataGenerator */;
 			productType = "com.apple.product-type.tool";
+		};
+		0A993CBA1F7CCDCD00A0C44A /* ChineseIDCardOCR-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A993CC01F7CCDCD00A0C44A /* Build configuration list for PBXNativeTarget "ChineseIDCardOCR-macOS" */;
+			buildPhases = (
+				0A993CB61F7CCDCD00A0C44A /* Sources */,
+				0A993CB71F7CCDCD00A0C44A /* Frameworks */,
+				0A993CB81F7CCDCD00A0C44A /* Headers */,
+				0A993CB91F7CCDCD00A0C44A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ChineseIDCardOCR-macOS";
+			productName = "ChineseIDCardOCR-macOS";
+			productReference = 0A993CBB1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		0AA5457B1F74DC94003F61A2 /* ChineseIDCardOCR */ = {
 			isa = PBXNativeTarget;
@@ -353,24 +379,6 @@
 			productReference = 0AA545A21F74E853003F61A2 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EB36250B1F781B2B007223C8 /* ChineseIDCardOCR-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EB3625111F781B2B007223C8 /* Build configuration list for PBXNativeTarget "ChineseIDCardOCR-macOS" */;
-			buildPhases = (
-				EB3625071F781B2B007223C8 /* Sources */,
-				EB3625081F781B2B007223C8 /* Frameworks */,
-				EB3625091F781B2B007223C8 /* Headers */,
-				EB36250A1F781B2B007223C8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ChineseIDCardOCR-macOS";
-			productName = "ChineseIDCardOCR-macOS";
-			productReference = EB36250C1F781B2B007223C8 /* ChineseIDCardOCR_macOS.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -385,6 +393,10 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
+					0A993CBA1F7CCDCD00A0C44A = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 					0AA5457B1F74DC94003F61A2 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
@@ -395,10 +407,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					0AA545A11F74E853003F61A2 = {
-						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
-					};
-					EB36250B1F781B2B007223C8 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
@@ -421,12 +429,19 @@
 				0AA545841F74DC94003F61A2 /* ChineseIDCardOCRTests */,
 				0AA545A11F74E853003F61A2 /* Example */,
 				0A4CB8821F76174C00875276 /* TrainingDataGenerator */,
-				EB36250B1F781B2B007223C8 /* ChineseIDCardOCR-macOS */,
+				0A993CBA1F7CCDCD00A0C44A /* ChineseIDCardOCR-macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0A993CB91F7CCDCD00A0C44A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0AA5457A1F74DC94003F61A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,13 +466,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB36250A1F781B2B007223C8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -470,6 +478,20 @@
 				0A4CB8861F76174C00875276 /* main.swift in Sources */,
 				0A993C991F7CADF400A0C44A /* SmoothThresholdFilter.swift in Sources */,
 				EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0A993CB61F7CCDCD00A0C44A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A993CC81F7CCDDB00A0C44A /* KGPreProcessing.swift in Sources */,
+				0A993CC71F7CCDDB00A0C44A /* KGUtils.swift in Sources */,
+				0A993CC61F7CCDDB00A0C44A /* KGError.swift in Sources */,
+				0A993CC31F7CCDDB00A0C44A /* AdaptiveThresholdFilter.swift in Sources */,
+				0A993CC51F7CCDDB00A0C44A /* KGEngine.swift in Sources */,
+				0A993CC41F7CCDDB00A0C44A /* SmoothThresholdFilter.swift in Sources */,
+				0A993CC91F7CCDE000A0C44A /* KGNetCNN.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,20 +526,6 @@
 				0AA545A51F74E853003F61A2 /* AppDelegate.swift in Sources */,
 				0A5C940F1F78EE7300836BF6 /* ScanViewController.swift in Sources */,
 				0A993C9A1F7CAEB600A0C44A /* Utils.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB3625071F781B2B007223C8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0AFF2B071F7B35B700D48664 /* KGNetCNN.mlmodel in Sources */,
-				EB3625151F781B54007223C8 /* KGError.swift in Sources */,
-				EB3625141F781B54007223C8 /* KGEngine.swift in Sources */,
-				0AFF2B111F7B5F6F00D48664 /* SmoothThresholdFilter.swift in Sources */,
-				EB3625171F781B54007223C8 /* KGPreProcessing.swift in Sources */,
-				EB3625161F781B54007223C8 /* KGUtils.swift in Sources */,
-				0AFF2B101F7B5F6F00D48664 /* AdaptiveThresholdFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +584,52 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		0A993CC11F7CCDCD00A0C44A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "ChineseIDCardOCR-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kevin.Gong.cnn.ChineseIDCardOCR-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		0A993CC21F7CCDCD00A0C44A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "ChineseIDCardOCR-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kevin.Gong.cnn.ChineseIDCardOCR-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -798,54 +852,6 @@
 			};
 			name = Release;
 		};
-		EB3625121F781B2B007223C8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PU764FA74Y;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "ChineseIDCardOCR-macOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ftd.demo.ChineseIDCardOCR-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		EB3625131F781B2B007223C8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PU764FA74Y;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "ChineseIDCardOCR-macOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ftd.demo.ChineseIDCardOCR-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -854,6 +860,15 @@
 			buildConfigurations = (
 				0A4CB8881F76174C00875276 /* Debug */,
 				0A4CB8891F76174C00875276 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A993CC01F7CCDCD00A0C44A /* Build configuration list for PBXNativeTarget "ChineseIDCardOCR-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A993CC11F7CCDCD00A0C44A /* Debug */,
+				0A993CC21F7CCDCD00A0C44A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -890,15 +905,6 @@
 			buildConfigurations = (
 				0AA545B21F74E853003F61A2 /* Debug */,
 				0AA545B31F74E853003F61A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EB3625111F781B2B007223C8 /* Build configuration list for PBXNativeTarget "ChineseIDCardOCR-macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EB3625121F781B2B007223C8 /* Debug */,
-				EB3625131F781B2B007223C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

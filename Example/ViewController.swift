@@ -15,8 +15,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var images = [UIImage?]()
+    var images = [CIImage]()
 
+    lazy var context = CIContext(options: [kCIContextUseSoftwareRenderer: false])
     lazy var engine = KGEngine.default
 
     override func viewDidLoad() {
@@ -26,18 +27,16 @@ class ViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: e.top, left: e.left,
                                                    bottom: e.bottom + 44, right: e.right)
         engine.debugBlock = { image in
-            let w = UIScreen.main.bounds.width
-
-            if image.extent.width <= w {
-                self.images.append(UIImage(ciImage: image))
+            let size = UIScreen.main.bounds
+            if image.extent.width > size.width {
+                self.images.append(image.applyingFilter("CILanczosScaleTransform",
+                                                       parameters: [kCIInputScaleKey: size.width / image.extent.width]))
             } else {
-                self.images.append(UIImage(ciImage: image.applyingFilter("CILanczosScaleTransform",
-                                                                         parameters: [kCIInputScaleKey: w / image.extent.height,
-                                                                                      kCIInputAspectRatioKey: w / (image.extent.width * w / image.extent.height)])))
+                self.images.append(image)
             }
         }
 
-        if let image = CIImage(image: #imageLiteral(resourceName: "demo1"))/**?.oriented(forExifOrientation: UIImageOrientation.left.toTiffOrientation)**/ {
+        if let image = CIImage(image: #imageLiteral(resourceName: "demo1")) {
             engine.recognize(IDCard: image) { (idcard, error) in
                 guard let card = idcard else {
                     debugPrint(error?.localizedDescription ?? "unknow error")
@@ -58,8 +57,8 @@ class ViewController: UIViewController {
         present(picker, animated: true)
     }
 
-    @IBAction func scan(_ sender: UIBarButtonItem) {
-        
+    @IBAction func reload(_ sender: UIBarButtonItem) {
+        collectionView.reloadData()
     }
 }
 
@@ -72,9 +71,18 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PreviewImageCollectionViewCell
 
-        cell.previewImageView.image = images[indexPath.item]
+        let ciImgae = images[indexPath.item]
+        DispatchQueue.global().async {
+            if let cgImage = self.context.createCGImage(ciImgae, from: ciImgae.extent) {
+                DispatchQueue.main.async {
+                    if cell.previewImageView.image == nil {
+                        cell.previewImageView.image = UIImage(cgImage: cgImage)
+                    }
+                }
+            }
+        }
         cell.layer.borderColor = UIColor.red.cgColor
-        cell.layer.borderWidth = 0.5
+        cell.layer.borderWidth = 2
         return cell
     }
 
@@ -87,7 +95,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return images[indexPath.item]?.size ?? CGSize(width: 44, height: 44)
+        return images[indexPath.item].extent.size
     }
 
 }
@@ -122,4 +130,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 class PreviewImageCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var previewImageView: UIImageView!
+
+    override func prepareForReuse() {
+        previewImageView.image = nil
+    }
 }

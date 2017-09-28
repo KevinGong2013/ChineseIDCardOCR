@@ -104,7 +104,7 @@ public struct KGPreProcessing {
         return inputImage
     }
 
-    /// 检测并截取图片上的身份证号码所在区域
+    /// 检测并截取图片上的身份证号码所在区域, 请保证身份证头像两眼连线与水平线角度不超过45度。
     ///
     /// - parameter image: 身份证原始图片
     ///
@@ -165,7 +165,9 @@ public struct KGPreProcessing {
             faceFeature.hasRightEyePosition &&
             faceFeature.hasMouthPosition &&
             !faceFeature.leftEyeClosed &&
-            !faceFeature.rightEyeClosed else {
+            !faceFeature.rightEyeClosed &&
+            !faceFeature.hasFaceAngle else {
+                debugPrint(features)
                 return nil
         }
 
