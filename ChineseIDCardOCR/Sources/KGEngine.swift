@@ -55,13 +55,16 @@ public class KGEngine {
 
 public extension KGEngine {
 
-    /// 对完整的身份证照片进行识别
+    /// 对完整原始的身份证照片进行识别
     ///
-    /// - parameter image: 身份证照片
+    /// - parameter kgImage: 包含身份证图像的原始照片
     ///
-    /// - returns: 身份证号码
+    /// - parameter completionHandler: 识别成功以后会调用 包含身份证结构体和错误信息
     ///
-    public func classify(IDCard kgImage: KGImage, completionHandler: @escaping (IDCard?, KGError?) -> ()) {
+    ///
+    /// - returns: nil
+    ///
+    public func recognize(IDCard kgImage: KGImage, completionHandler: @escaping (IDCard?, KGError?) -> ()) {
 
         guard let inputImage = CIImage(image: kgImage) else {
             completionHandler(nil, .invalidImage)
@@ -93,18 +96,13 @@ public extension KGEngine {
             let preprocessedImage = KGPreProcessing.do(numberArea, debugBlock: self.debugBlock)
             let numbers = KGPreProcessing.segment(preprocessedImage, debugBlock: self.debugBlock)
 
-            if let result = self.classify(IDCardNumbers: numbers.map { x in x.0 }) {
-                completionHandler(IDCard(number: result.joined(separator: "")), nil)
-            } else {
-               completionHandler(nil, .classifyFailed)
+            let result = numbers.map { $0.0 }.flatMap(self.prediction).map { $0.0 }
+            guard result.count > 0 else {
+                completionHandler(nil, KGError.classifyFailed)
+                return
             }
+            completionHandler(IDCard(number: result.joined(separator: "")), nil)
         }
-    }
-
-    // TODO 根据不同类型（身份证，银行卡...）进行 校验 计算
-    func classify(IDCardNumbers images: [CIImage]) -> [String]? {
-
-        return images.flatMap(prediction).map { x in x.0 }
     }
 }
 
