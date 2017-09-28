@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             self.images.append(UIImage(ciImage: image))
         }
 
-        engine.classify(IDCard: #imageLiteral(resourceName: "demo1")) { (idcard, error) in
+        engine.recognize(IDCard: #imageLiteral(resourceName: "demo1")) { (idcard, error) in
             guard let card = idcard else {
                 debugPrint(error?.localizedDescription ?? "unknow error")
                 return
@@ -94,7 +94,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         images.removeAll()
         collectionView.reloadData()
 
-        engine.classify(IDCard: uiImage) { idcard, error in
+        engine.recognize(IDCard: uiImage) { idcard, error in
             guard let card = idcard else {
                 debugPrint(error?.localizedDescription ?? "unknow error")
                 return

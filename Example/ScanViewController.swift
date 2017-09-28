@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 import Vision
+import QuartzCore
+import CoreMedia
 
 class PreviewView: UIView {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer {
@@ -28,6 +30,15 @@ class PreviewView: UIView {
 
     override class var layerClass: AnyClass {
         return AVCaptureVideoPreviewLayer.self
+    }
+}
+
+class TagLayer: CALayer {
+
+    public convenience init(frame: CGRect) {
+        self.init()
+        self.frame = frame
+        self.backgroundColor = UIColor.red.withAlphaComponent(0.4).cgColor
     }
 }
 
@@ -63,11 +74,27 @@ class ScanViewController: UIViewController {
         session.addOutput(deviceOutput)
 
         session.startRunning()
+
+        previewView.session = session
     }
 
     func handleRectangleRequest(request: VNRequest, error: Error?) {
-//        guard let observations = request.results as? [VNRectangleObservation] else { return }
+        guard let observations = request.results as? [VNRectangleObservation] else { return }
 
+        DispatchQueue.main.async {
+            CATransaction.begin()
+            CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+            self.previewView.layer.sublayers?.filter { $0 is TagLayer }.forEach { $0.removeFromSuperlayer() }
+            let size = self.previewView.frame.size
+            observations.map {
+                let rect = CGRect(x: $0.topLeft.x * size.width,
+                                  y: (1 - $0.topLeft.y) * size.height,
+                                  width: ($0.topRight.x - $0.bottomLeft.x) * size.width,
+                                  height: ($0.topLeft.y - $0.bottomLeft.y) * size.height)
+                return TagLayer(frame: rect)
+                }.forEach(self.previewView.layer.addSublayer)
+            CATransaction.commit()
+        }
     }
 
     func handleDetectFaceRequest() {
@@ -85,7 +112,7 @@ class ScanViewController: UIViewController {
 
 extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
-    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
 
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
@@ -94,7 +121,7 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         var requestOptions = [VNImageOption: Any]()
 
         if let camData = CMGetAttachment(sampleBuffer, kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, nil) {
-            requestOptions = [.cameraIntrinsics:camData]
+            requestOptions = [.cameraIntrinsics: camData]
         }
 
         let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation.up, options: requestOptions)
