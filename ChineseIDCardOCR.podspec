@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ChineseIDCardOCR"
-  s.version      = "0.1.0"
+  s.version      = "0.1.2"
   s.summary      = "🇨🇳中国二代身份证光学识别"
 
   # This description is used to generate tags and improve search results.
