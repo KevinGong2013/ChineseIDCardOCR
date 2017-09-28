@@ -9,37 +9,37 @@
 /* Begin PBXBuildFile section */
 		0A2A7C2E1F754C3E00BD65C2 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */; };
 		0A2A7C2F1F754C3E00BD65C2 /* ChineseIDCardOCR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0A4CB8541F76092000875276 /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8531F76092000875276 /* KGPreProcessing.swift */; };
 		0A4CB8861F76174C00875276 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8851F76174C00875276 /* main.swift */; };
-		0A4CB88A1F76430900875276 /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8531F76092000875276 /* KGPreProcessing.swift */; };
 		0A5C940C1F78EBCE00836BF6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */; };
 		0A5C940F1F78EE7300836BF6 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */; };
-		0A993C981F7CADF400A0C44A /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */; };
-		0A993C991F7CADF400A0C44A /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */; };
 		0A993C9A1F7CAEB600A0C44A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993C961F7CACA800A0C44A /* Utils.swift */; };
 		0A993CBF1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A993CBD1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A993CC31F7CCDDB00A0C44A /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */; };
-		0A993CC41F7CCDDB00A0C44A /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */; };
-		0A993CC51F7CCDDB00A0C44A /* KGEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545971F74DD27003F61A2 /* KGEngine.swift */; };
-		0A993CC61F7CCDDB00A0C44A /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545B81F7500D4003F61A2 /* KGError.swift */; };
-		0A993CC71F7CCDDB00A0C44A /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
-		0A993CC81F7CCDDB00A0C44A /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CB8531F76092000875276 /* KGPreProcessing.swift */; };
-		0A993CC91F7CCDE000A0C44A /* KGNetCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */; };
+		0A993CD41F7D040800A0C44A /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CCE1F7D040800A0C44A /* KGUtils.swift */; };
+		0A993CD51F7D040800A0C44A /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CCF1F7D040800A0C44A /* KGPreProcessing.swift */; };
+		0A993CD61F7D040800A0C44A /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD01F7D040800A0C44A /* SmoothThresholdFilter.swift */; };
+		0A993CD71F7D040800A0C44A /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD11F7D040800A0C44A /* KGError.swift */; };
+		0A993CD81F7D040800A0C44A /* KGEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD21F7D040800A0C44A /* KGEngine.swift */; };
+		0A993CD91F7D040800A0C44A /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD31F7D040800A0C44A /* AdaptiveThresholdFilter.swift */; };
+		0A993CDB1F7D041700A0C44A /* KGNetCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CDA1F7D041700A0C44A /* KGNetCNN.mlmodel */; };
+		0A993CDE1F7D044200A0C44A /* KGNetCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CDA1F7D041700A0C44A /* KGNetCNN.mlmodel */; };
+		0A993CDF1F7D044200A0C44A /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD01F7D040800A0C44A /* SmoothThresholdFilter.swift */; };
+		0A993CE01F7D044200A0C44A /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD31F7D040800A0C44A /* AdaptiveThresholdFilter.swift */; };
+		0A993CE11F7D044200A0C44A /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CCE1F7D040800A0C44A /* KGUtils.swift */; };
+		0A993CE21F7D044200A0C44A /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CCF1F7D040800A0C44A /* KGPreProcessing.swift */; };
+		0A993CE31F7D044200A0C44A /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD11F7D040800A0C44A /* KGError.swift */; };
+		0A993CE41F7D044200A0C44A /* KGEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD21F7D040800A0C44A /* KGEngine.swift */; };
+		0A993CE51F7D045F00A0C44A /* KGPreProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CCF1F7D040800A0C44A /* KGPreProcessing.swift */; };
+		0A993CE61F7D046B00A0C44A /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CCE1F7D040800A0C44A /* KGUtils.swift */; };
+		0A993CE71F7D047900A0C44A /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD01F7D040800A0C44A /* SmoothThresholdFilter.swift */; };
+		0A993CE81F7D047900A0C44A /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A993CD31F7D040800A0C44A /* AdaptiveThresholdFilter.swift */; };
 		0AA545861F74DC94003F61A2 /* ChineseIDCardOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */; };
 		0AA5458B1F74DC94003F61A2 /* ChineseIDCardOCRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5458A1F74DC94003F61A2 /* ChineseIDCardOCRTests.swift */; };
 		0AA5458D1F74DC94003F61A2 /* ChineseIDCardOCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0AA545981F74DD27003F61A2 /* KGEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545971F74DD27003F61A2 /* KGEngine.swift */; };
 		0AA545A51F74E853003F61A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545A41F74E853003F61A2 /* AppDelegate.swift */; };
 		0AA545A71F74E853003F61A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545A61F74E853003F61A2 /* ViewController.swift */; };
 		0AA545AA1F74E853003F61A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA545A81F74E853003F61A2 /* Main.storyboard */; };
 		0AA545AC1F74E853003F61A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA545AB1F74E853003F61A2 /* Assets.xcassets */; };
 		0AA545AF1F74E853003F61A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA545AD1F74E853003F61A2 /* LaunchScreen.storyboard */; };
-		0AA545B91F7500D4003F61A2 /* KGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545B81F7500D4003F61A2 /* KGError.swift */; };
-		0AA545BD1F750EEA003F61A2 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
-		0AFF2B061F7B35B500D48664 /* KGNetCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */; };
-		0AFF2B0D1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */; };
-		0AFF2B0E1F7B5EF400D48664 /* SmoothThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */; };
-		EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA545BC1F750EEA003F61A2 /* KGUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A4CB8531F76092000875276 /* KGPreProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGPreProcessing.swift; sourceTree = "<group>"; };
 		0A4CB8831F76174C00875276 /* TrainingDataGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TrainingDataGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4CB8851F76174C00875276 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0A5C940B1F78EBCE00836BF6 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -91,13 +90,19 @@
 		0A993CBB1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A993CBD1F7CCDCD00A0C44A /* ChineseIDCardOCR_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR_macOS.h; sourceTree = "<group>"; };
 		0A993CBE1F7CCDCD00A0C44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A993CCE1F7D040800A0C44A /* KGUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGUtils.swift; sourceTree = "<group>"; };
+		0A993CCF1F7D040800A0C44A /* KGPreProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGPreProcessing.swift; sourceTree = "<group>"; };
+		0A993CD01F7D040800A0C44A /* SmoothThresholdFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothThresholdFilter.swift; sourceTree = "<group>"; };
+		0A993CD11F7D040800A0C44A /* KGError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGError.swift; sourceTree = "<group>"; };
+		0A993CD21F7D040800A0C44A /* KGEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGEngine.swift; sourceTree = "<group>"; };
+		0A993CD31F7D040800A0C44A /* AdaptiveThresholdFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveThresholdFilter.swift; sourceTree = "<group>"; };
+		0A993CDA1F7D041700A0C44A /* KGNetCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = KGNetCNN.mlmodel; path = Sources/KGNetCNN.mlmodel; sourceTree = SOURCE_ROOT; };
 		0AA5457C1F74DC94003F61A2 /* ChineseIDCardOCR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChineseIDCardOCR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseIDCardOCR.h; sourceTree = "<group>"; };
 		0AA545801F74DC94003F61A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA545851F74DC94003F61A2 /* ChineseIDCardOCRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChineseIDCardOCRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA5458A1F74DC94003F61A2 /* ChineseIDCardOCRTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseIDCardOCRTests.swift; sourceTree = "<group>"; };
 		0AA5458C1F74DC94003F61A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AA545971F74DD27003F61A2 /* KGEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGEngine.swift; sourceTree = "<group>"; };
 		0AA545A21F74E853003F61A2 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA545A41F74E853003F61A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AA545A61F74E853003F61A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,11 +110,6 @@
 		0AA545AB1F74E853003F61A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AA545AE1F74E853003F61A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AA545B01F74E853003F61A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AA545B81F7500D4003F61A2 /* KGError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGError.swift; sourceTree = "<group>"; };
-		0AA545BC1F750EEA003F61A2 /* KGUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGUtils.swift; sourceTree = "<group>"; };
-		0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = KGNetCNN.mlmodel; path = TrainingDataGenerator/Scripts/KGNetCNN.mlmodel; sourceTree = SOURCE_ROOT; };
-		0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveThresholdFilter.swift; sourceTree = "<group>"; };
-		0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothThresholdFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +177,36 @@
 			path = "ChineseIDCardOCR-macOS";
 			sourceTree = "<group>";
 		};
+		0A993CCD1F7D040800A0C44A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0A993CDD1F7D043100A0C44A /* Model */,
+				0A993CDC1F7D041C00A0C44A /* Filters */,
+				0A993CCE1F7D040800A0C44A /* KGUtils.swift */,
+				0A993CCF1F7D040800A0C44A /* KGPreProcessing.swift */,
+				0A993CD11F7D040800A0C44A /* KGError.swift */,
+				0A993CD21F7D040800A0C44A /* KGEngine.swift */,
+			);
+			path = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		0A993CDC1F7D041C00A0C44A /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				0A993CD01F7D040800A0C44A /* SmoothThresholdFilter.swift */,
+				0A993CD31F7D040800A0C44A /* AdaptiveThresholdFilter.swift */,
+			);
+			name = Filters;
+			sourceTree = "<group>";
+		};
+		0A993CDD1F7D043100A0C44A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A993CDA1F7D041700A0C44A /* KGNetCNN.mlmodel */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		0AA545721F74DC94003F61A2 = {
 			isa = PBXGroup;
 			children = (
@@ -204,9 +234,8 @@
 		0AA5457E1F74DC94003F61A2 /* ChineseIDCardOCR */ = {
 			isa = PBXGroup;
 			children = (
+				0A993CCD1F7D040800A0C44A /* Sources */,
 				0AA545A31F74E853003F61A2 /* Example */,
-				0AA545991F74DE29003F61A2 /* Model */,
-				0AA545961F74DCCF003F61A2 /* Sources */,
 				0AA5457F1F74DC94003F61A2 /* ChineseIDCardOCR.h */,
 				0AA545801F74DC94003F61A2 /* Info.plist */,
 			);
@@ -220,26 +249,6 @@
 				0AA5458C1F74DC94003F61A2 /* Info.plist */,
 			);
 			path = ChineseIDCardOCRTests;
-			sourceTree = "<group>";
-		};
-		0AA545961F74DCCF003F61A2 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				0AFF2B0F1F7B5EF800D48664 /* Filters */,
-				0AA545971F74DD27003F61A2 /* KGEngine.swift */,
-				0AA545B81F7500D4003F61A2 /* KGError.swift */,
-				0AA545BC1F750EEA003F61A2 /* KGUtils.swift */,
-				0A4CB8531F76092000875276 /* KGPreProcessing.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		0AA545991F74DE29003F61A2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0AFF2B051F7B356D00D48664 /* KGNetCNN.mlmodel */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		0AA545A31F74E853003F61A2 /* Example */ = {
@@ -256,15 +265,6 @@
 			);
 			name = Example;
 			path = ../Example;
-			sourceTree = "<group>";
-		};
-		0AFF2B0F1F7B5EF800D48664 /* Filters */ = {
-			isa = PBXGroup;
-			children = (
-				0AFF2B0B1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift */,
-				0AFF2B0C1F7B5EF400D48664 /* SmoothThresholdFilter.swift */,
-			);
-			name = Filters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,11 +473,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A4CB88A1F76430900875276 /* KGPreProcessing.swift in Sources */,
-				0A993C981F7CADF400A0C44A /* AdaptiveThresholdFilter.swift in Sources */,
+				0A993CE51F7D045F00A0C44A /* KGPreProcessing.swift in Sources */,
+				0A993CE81F7D047900A0C44A /* AdaptiveThresholdFilter.swift in Sources */,
 				0A4CB8861F76174C00875276 /* main.swift in Sources */,
-				0A993C991F7CADF400A0C44A /* SmoothThresholdFilter.swift in Sources */,
-				EB3625041F7749F6007223C8 /* KGUtils.swift in Sources */,
+				0A993CE61F7D046B00A0C44A /* KGUtils.swift in Sources */,
+				0A993CE71F7D047900A0C44A /* SmoothThresholdFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,13 +485,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A993CC81F7CCDDB00A0C44A /* KGPreProcessing.swift in Sources */,
-				0A993CC71F7CCDDB00A0C44A /* KGUtils.swift in Sources */,
-				0A993CC61F7CCDDB00A0C44A /* KGError.swift in Sources */,
-				0A993CC31F7CCDDB00A0C44A /* AdaptiveThresholdFilter.swift in Sources */,
-				0A993CC51F7CCDDB00A0C44A /* KGEngine.swift in Sources */,
-				0A993CC41F7CCDDB00A0C44A /* SmoothThresholdFilter.swift in Sources */,
-				0A993CC91F7CCDE000A0C44A /* KGNetCNN.mlmodel in Sources */,
+				0A993CDE1F7D044200A0C44A /* KGNetCNN.mlmodel in Sources */,
+				0A993CE01F7D044200A0C44A /* AdaptiveThresholdFilter.swift in Sources */,
+				0A993CDF1F7D044200A0C44A /* SmoothThresholdFilter.swift in Sources */,
+				0A993CE21F7D044200A0C44A /* KGPreProcessing.swift in Sources */,
+				0A993CE31F7D044200A0C44A /* KGError.swift in Sources */,
+				0A993CE41F7D044200A0C44A /* KGEngine.swift in Sources */,
+				0A993CE11F7D044200A0C44A /* KGUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,14 +499,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AA545BD1F750EEA003F61A2 /* KGUtils.swift in Sources */,
-				0AFF2B0E1F7B5EF400D48664 /* SmoothThresholdFilter.swift in Sources */,
-				0AFF2B0D1F7B5EF400D48664 /* AdaptiveThresholdFilter.swift in Sources */,
-				0AFF2B061F7B35B500D48664 /* KGNetCNN.mlmodel in Sources */,
-				0A4CB8541F76092000875276 /* KGPreProcessing.swift in Sources */,
-				0AA545B91F7500D4003F61A2 /* KGError.swift in Sources */,
-				0AA545981F74DD27003F61A2 /* KGEngine.swift in Sources */,
+				0A993CDB1F7D041700A0C44A /* KGNetCNN.mlmodel in Sources */,
+				0A993CD51F7D040800A0C44A /* KGPreProcessing.swift in Sources */,
+				0A993CD81F7D040800A0C44A /* KGEngine.swift in Sources */,
 				0A5C940C1F78EBCE00836BF6 /* ScanViewController.swift in Sources */,
+				0A993CD71F7D040800A0C44A /* KGError.swift in Sources */,
+				0A993CD41F7D040800A0C44A /* KGUtils.swift in Sources */,
+				0A993CD61F7D040800A0C44A /* SmoothThresholdFilter.swift in Sources */,
+				0A993CD91F7D040800A0C44A /* AdaptiveThresholdFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
