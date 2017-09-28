@@ -25,19 +25,28 @@ class ViewController: UIViewController {
         let e = collectionView.contentInset
         collectionView.contentInset = UIEdgeInsets(top: e.top, left: e.left,
                                                    bottom: e.bottom + 44, right: e.right)
-
         engine.debugBlock = { image in
-            self.images.append(UIImage(ciImage: image))
+            let w = UIScreen.main.bounds.width
+
+            if image.extent.width <= w {
+                self.images.append(UIImage(ciImage: image))
+            } else {
+                self.images.append(UIImage(ciImage: image.applyingFilter("CILanczosScaleTransform",
+                                                                         parameters: [kCIInputScaleKey: w / image.extent.height,
+                                                                                      kCIInputAspectRatioKey: w / (image.extent.width * w / image.extent.height)])))
+            }
         }
 
-        engine.recognize(IDCard: #imageLiteral(resourceName: "demo1")) { (idcard, error) in
-            guard let card = idcard else {
-                debugPrint(error?.localizedDescription ?? "unknow error")
-                return
-            }
-            debugPrint(card.number)
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+        if let image = CIImage(image: #imageLiteral(resourceName: "demo1"))/**?.oriented(forExifOrientation: UIImageOrientation.left.toTiffOrientation)**/ {
+            engine.recognize(IDCard: image) { (idcard, error) in
+                guard let card = idcard else {
+                    debugPrint(error?.localizedDescription ?? "unknow error")
+                    return
+                }
+                debugPrint(card.number)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }
     }
@@ -94,14 +103,16 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         images.removeAll()
         collectionView.reloadData()
 
-        engine.recognize(IDCard: uiImage) { idcard, error in
-            guard let card = idcard else {
-                debugPrint(error?.localizedDescription ?? "unknow error")
-                return
-            }
-            debugPrint(card)
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+        if let image = CIImage(image: uiImage) {
+            engine.recognize(IDCard: image) { idcard, error in
+                guard let card = idcard else {
+                    debugPrint(error?.localizedDescription ?? "unknow error")
+                    return
+                }
+                debugPrint(card)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }
     }

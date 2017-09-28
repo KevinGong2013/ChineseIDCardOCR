@@ -57,6 +57,8 @@ public extension KGEngine {
 
     /// 对完整原始的身份证照片进行识别
     ///
+    /// 请务必确认图片方向， 保证身份证头像向上
+    ///
     /// - parameter kgImage: 包含身份证图像的原始照片
     ///
     /// - parameter completionHandler: 识别成功以后会调用 包含身份证结构体和错误信息
@@ -64,19 +66,7 @@ public extension KGEngine {
     ///
     /// - returns: nil
     ///
-    public func recognize(IDCard kgImage: KGImage, completionHandler: @escaping (IDCard?, KGError?) -> ()) {
-
-        guard let inputImage = CIImage(image: kgImage) else {
-            completionHandler(nil, .invalidImage)
-            return
-        }
-        debugBlock?(inputImage)
-        
-        #if os(iOS)
-            let orientation = CGImagePropertyOrientation(kgImage.imageOrientation)
-            inputImage.oriented(forExifOrientation: Int32(orientation.rawValue))
-        #endif
-
+    public func recognize(IDCard image: CIImage, completionHandler: @escaping (IDCard?, KGError?) -> ()) {
         ///
         /// 1. 检测身份证号码所在区域 并截取出来
         ///
@@ -89,7 +79,7 @@ public extension KGEngine {
         /// 5. TODO 根据身份证规则验证
         ///
         DispatchQueue.global(qos: .userInteractive).async {
-            guard let numberArea = KGPreProcessing.detectChineseIDCardNumbersAra(inputImage) else {
+            guard let numberArea = KGPreProcessing.detectChineseIDCardNumbersAra(image, debugBlock: self.debugBlock) else {
                 completionHandler(nil, .faceInfoIncorrect)
                 return
             }

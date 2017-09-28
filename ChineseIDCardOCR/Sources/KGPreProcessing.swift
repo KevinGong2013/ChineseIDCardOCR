@@ -6,9 +6,8 @@
 //  Copyright © 2017 Kevin.Gong. All rights reserved.
 //
 
-import Foundation
-import Vision
 import CoreImage
+import Vision
 
 #if os(macOS)
 import AppKit
@@ -113,9 +112,12 @@ public struct KGPreProcessing {
 
     public static func detectChineseIDCardNumbersAra(_ cardImage: CIImage, debugBlock: ((CIImage) -> ())? = nil) -> CIImage? {
 
-        let imageSize = cardImage.extent.size
         var inputImage = cardImage
+        debugBlock?(inputImage)
+
+        let imageSize = inputImage.extent.size
         var croppedSize = imageSize // 用于根据身份证比例定位号码所在区域
+
         // step 1: 检测身份证的矩形框
         let detectRectangleSemaphore = DispatchSemaphore(value: 0)
         let rectangleRequest = VNDetectRectanglesRequest { (request, err) in
@@ -142,7 +144,7 @@ public struct KGPreProcessing {
             }
         }
 
-        // 检测身份证的矩形框 step 1
+        // 检测身份证的矩形框
         let handler = VNImageRequestHandler(ciImage: inputImage)
 
         DispatchQueue.global(qos: .userInteractive).async {
@@ -195,7 +197,7 @@ public struct KGPreProcessing {
 
         }
 
-        // .5. 截图 将身份证数字区域截出来
+        // step 3 截图 将身份证数字区域截出来
         // 这里的比例系数实根据身份证的比例，计算身份证号码所在位置
         let fb = faceFeature.bounds
         let y = croppedSize.height - (fb.origin.y + fb.size.height + fb.size.height + fb.size.height / 2)
