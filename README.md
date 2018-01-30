@@ -1,3 +1,5 @@
+# [Deprecated] 本项目不在维护 新项目地址 ==> [Evil 身份证、银行卡、等OCR识别](https://github.com/evilgix/Evil)
+
 # ChineseIDCardOCR
 🇨🇳中国二代身份证光学识别
 
