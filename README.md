@@ -1,4 +1,4 @@
-# [Deprecated] 本项目已经迁移至新rep ==> [Evil 身份证、银行卡、等OCR识别](https://github.com/evilgix/Evil)
+# [Deprecated] 本项目已经迁移至新repo ==> [Evil 身份证、银行卡、等OCR识别](https://github.com/evilgix/Evil)
 
 # ChineseIDCardOCR
 🇨🇳中国二代身份证光学识别
